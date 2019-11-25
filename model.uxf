@@ -18,13 +18,13 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
+      <x>469</x>
       <y>203</y>
-      <w>70</w>
-      <h>77</h>
+      <w>161</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>210.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -74,13 +74,13 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>609</x>
+      <x>469</x>
       <y>203</y>
-      <w>70</w>
-      <h>77</h>
+      <w>161</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;90.0</additional_attributes>
+    <additional_attributes>210.0;10.0;10.0;200.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -179,8 +179,8 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>462</x>
-      <y>266</y>
+      <x>371</x>
+      <y>259</y>
       <w>140</w>
       <h>63</h>
     </coordinates>
@@ -194,8 +194,8 @@ Provider
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>623</x>
-      <y>266</y>
+      <x>434</x>
+      <y>343</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -352,7 +352,7 @@ CustomisationParameter
     <id>UMLClass</id>
     <coordinates>
       <x>224</x>
-      <y>427</y>
+      <y>350</y>
       <w>196</w>
       <h>77</h>
     </coordinates>
@@ -368,8 +368,8 @@ InvestorRecord
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>434</x>
-      <y>343</y>
+      <x>224</x>
+      <y>441</y>
       <w>231</w>
       <h>105</h>
     </coordinates>
@@ -386,8 +386,8 @@ InvestorRecord
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
-      <y>630</y>
+      <x>168</x>
+      <y>637</y>
       <w>154</w>
       <h>70</h>
     </coordinates>
@@ -399,8 +399,8 @@ InvestorRecord
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>679</x>
-      <y>343</y>
+      <x>245</x>
+      <y>735</y>
       <w>224</w>
       <h>126</h>
     </coordinates>
@@ -418,8 +418,8 @@ Requests
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>434</x>
-      <y>462</y>
+      <x>0</x>
+      <y>735</y>
       <w>224</w>
       <h>133</h>
     </coordinates>
@@ -439,8 +439,8 @@ Requests
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>63</x>
-      <y>511</y>
+      <x>28</x>
+      <y>504</y>
       <w>154</w>
       <h>70</h>
     </coordinates>
@@ -468,23 +468,49 @@ Requests
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>175</x>
-      <y>574</y>
-      <w>126</w>
-      <h>70</h>
+      <x>140</x>
+      <y>567</y>
+      <w>119</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;150.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>77</x>
-      <y>574</y>
-      <w>56</w>
-      <h>77</h>
+      <y>567</y>
+      <w>21</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>595</x>
+      <y>343</y>
+      <w>147</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Employer
+--
++ company: String {NotBlank}
++ sector: String {NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>203</y>
+      <w>77</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;200.0</additional_attributes>
   </element>
 </diagram>
