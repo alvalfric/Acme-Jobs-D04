@@ -33,6 +33,19 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `application` (
+       `id` integer not null,
+        `version` integer not null,
+        `moment` datetime(6),
+        `qualifications` varchar(255),
+        `reference` varchar(255),
+        `skills` varchar(255),
+        `statement` varchar(255),
+        `status` integer,
+        `worker_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `authenticated` (
        `id` integer not null,
         `version` integer not null,
@@ -235,6 +248,9 @@
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
+
+    alter table `application` 
+       add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDXmgvhy7dlsdj1h0c8yb46i6by1 on `challenge` (`title`, `deadline`);
 create index IDXh7bve39okm3gjs4blcchj12j2 on `company_record` (`star_score`);
@@ -264,6 +280,11 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        add constraint FK_6lnbc6fo3om54vugoh8icg78m 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `application` 
+       add constraint `FKmbjdoxi3o93agxosoate4sxbt` 
+       foreign key (`worker_id`) 
+       references `worker` (`id`);
 
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
