@@ -51,11 +51,11 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.announcement.create" action="/administrator/announcement/create"/>
 			<acme:menu-suboption code="master.menu.administrator.challenge.create" action="/administrator/challenge/create"/>
-			<acme:menu-suboption code="master.menu.administrator.commercialBanner.create" action="/administrator/commercial-banner/create"/>
 			<%--
+			<acme:menu-suboption code="master.menu.administrator.commercialBanner.create" action="/administrator/commercial-banner/create"/>
 			<acme:menu-suboption code="master.menu.administrator.nonCommercialBanner.create" action="/administrator/non-commercial-banner/create"/>
-			<acme:menu-suboption code="master.menu.administrator.company-records.create" action="/administrator/company-record/create"/>
 			--%>
+			<acme:menu-suboption code="master.menu.administrator.company-records.create" action="/administrator/company-record/create"/>
 			<acme:menu-suboption code="master.menu.administrator.investorRecord.create" action="/administrator/investor-record/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
