@@ -64,9 +64,9 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert errors != null;
 
-		String regexpUrl = "^(https?:\\\\/\\\\/)?(www\\\\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\\\\.)+[\\\\w]{2,}(\\\\/\\\\S*)?$";
+		String regexpUrl = "^(https?:\\/\\/)?(www\\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\\.)+[\\w]{2,}(\\/\\S*)?$";
 		boolean moreInfoOk = entity.getMoreInfo().matches(regexpUrl);
-		errors.state(request, moreInfoOk, "website", "administrator.announcement.error.web", regexpUrl);
+		errors.state(request, moreInfoOk, "moreInfo", "administrator.announcement.error.web", regexpUrl);
 
 		if (!errors.hasErrors("title")) {
 			errors.state(request, !entity.getTitle().isEmpty(), "title", "administrator.announcement.error.NotBlank");
