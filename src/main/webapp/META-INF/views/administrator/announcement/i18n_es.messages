@@ -24,4 +24,4 @@ administrator.announcement.form.button.create = Crear
 
 
 administrator.announcement.error.NotBlank = No puede estar en blanco
-administrator.announcement.error.web = La web site debe ser escrita en la forma http://www.example.com
+administrator.announcement.error.web = La website debe ser escrita en la forma http://www.example.com
