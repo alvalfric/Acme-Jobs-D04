@@ -89,6 +89,7 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
+		System.out.println(moment);
 		this.repository.save(entity);
 
 	}
