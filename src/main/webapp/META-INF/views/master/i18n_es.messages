@@ -90,6 +90,7 @@ master.menu.authenticated.requests = Peticiones
 master.menu.authenticated.announcement= Anuncios
 master.menu.authenticated.challenge= Desafio
 master.menu.authenticated.company-records = Registros de Empresas
+master.menu.authenticated.thread = Mis Hilos
 
 
 # master.menu.provider ########################################################

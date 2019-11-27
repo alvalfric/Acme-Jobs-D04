@@ -7,7 +7,9 @@
 	<acme:form-textbox code="administrator.commercialBanner.form.label.targetURL" path="targetURL" />
 	<acme:form-textbox code="administrator.commercialBanner.form.label.slogan" path="slogan" />
 	<acme:form-textarea code="administrator.commercialBanner.form.label.picture" path="picture" />
-	<acme:form-double code="administrator.commercialBanner.form.label.creditCard" path="creditCard" />
+	<acme:form-double code="administrator.commercialBanner.form.label.creditCardNumber" path="creditCardNumber" />
+	<acme:form-double code="administrator.commercialBanner.form.label.ccValidationNumber" path="ccValidationNumber" />
+	<acme:form-double code="administrator.commercialBanner.form.label.ccExpirationDate" path="ccExpirationDate" />
 	
 	<acme:form-submit test="${command == 'show'}"
 		code="administrator.commercialBanner.form.button.update"
