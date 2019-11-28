@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
   <zoom_level>7</zoom_level>
+   <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>651</y>
+      <w>77</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+Describes ^
+m1= 1
+m2= 1</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
@@ -25,6 +39,24 @@ bg=yellow</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>180.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+   <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>539</y>
+      <w>280</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>Job
+--
++ reference: String {Unique, NotBlank, Length(min=5,max=10)}
++ title: String {NotBlank}
++ deadline: Date {NotNull, Temporal(TIMESTAMP)}
++ salary: Money {NotNull, Valid}
++ moreInfo: String {URL}
++ finalMode: boolean</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
