@@ -490,7 +490,7 @@ Requests
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>441</x>
+      <x>497</x>
       <y>350</y>
       <w>147</w>
       <h>63</h>
@@ -505,18 +505,18 @@ Employer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
+      <x>560</x>
       <y>203</y>
-      <w>119</w>
+      <w>63</w>
       <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>150.0;10.0;10.0;210.0</additional_attributes>
+    <additional_attributes>70.0;10.0;10.0;210.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>616</x>
+      <x>679</x>
       <y>350</y>
       <w>147</w>
       <h>63</h>
@@ -533,10 +533,69 @@ Worker
     <coordinates>
       <x>609</x>
       <y>203</y>
-      <w>91</w>
+      <w>154</w>
       <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;210.0</additional_attributes>
+    <additional_attributes>10.0;10.0;200.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>539</y>
+      <w>280</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>Job
+--
++ reference: String {Unique, NotBlank, Length(min=5,max=10)}
++ title: String {NotBlank}
++ deadline: Date {NotNull, Temporal(TIMESTAMP)}
++ salary: Money {NotNull, Valid}
++ moreInfo: String {URL}
++ finalMode: boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>406</y>
+      <w>91</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+Registered by ^
+m1= 1
+m2= 0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>553</x>
+      <y>784</y>
+      <w>189</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Descriptor
+--
++ description: String {NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>651</y>
+      <w>77</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+Describes ^
+m1= 1
+m2= 1</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
