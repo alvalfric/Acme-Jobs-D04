@@ -7,6 +7,10 @@
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
 
+    alter table `application` 
+       drop 
+       foreign key `FKmbjdoxi3o93agxosoate4sxbt`;
+
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
@@ -18,6 +22,14 @@
     alter table `employer` 
        drop 
        foreign key FK_na4dfobmeuxkwf6p75abmb2tr;
+
+    alter table `job` 
+       drop 
+       foreign key `FKfqwyynnbcsq0htxho3vchpd2u`;
+
+    alter table `job` 
+       drop 
+       foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
 
     alter table `provider` 
        drop 
@@ -35,6 +47,8 @@
 
     drop table if exists `anonymous`;
 
+    drop table if exists `application`;
+
     drop table if exists `authenticated`;
 
     drop table if exists `cardenas_bulletin`;
@@ -51,11 +65,15 @@
 
     drop table if exists `customisation_parameter`;
 
+    drop table if exists `descriptor`;
+
     drop table if exists `employer`;
 
     drop table if exists `escobar_bulletin`;
 
     drop table if exists `investor_record`;
+
+    drop table if exists `job`;
 
     drop table if exists `non_commercial_banner`;
 

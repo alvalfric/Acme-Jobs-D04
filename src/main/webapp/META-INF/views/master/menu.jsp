@@ -32,6 +32,7 @@
            <acme:menu-suboption code="master.menu.authenticated.requests" action="/authenticated/requests/list"/>
            <acme:menu-suboption code="master.menu.authenticated.challenge" action="/authenticated/challenge/list"/>
            <acme:menu-suboption code="master.menu.authenticated.offer" action="/authenticated/offer/list"/>
+           <acme:menu-suboption code="master.menu.authenticated.job" action="/authenticated/job/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -67,6 +68,10 @@
 			<acme:menu-separator/>
 			--%>
 			<acme:menu-suboption code="master.menu.provider.requests.create" action="/provider/requests/create"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">
+			<acme:menu-suboption code="master.menu.employer.job" action="/employer/job/list-mine"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
