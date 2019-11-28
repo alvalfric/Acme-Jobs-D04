@@ -56,9 +56,6 @@ public class Job extends DomainEntity {
 
 	private boolean				finalMode;
 
-	@NotBlank
-	private String				description;
-
 	// Relationships ------------------------------------------------------
 
 	@NotNull
