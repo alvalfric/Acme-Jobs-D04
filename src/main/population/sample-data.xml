@@ -444,7 +444,6 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="descriptor" ref="descriptor1" />
-		<property name="description" value="Lorem ipsum sit dolor amet." />
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employerEmployer" />
@@ -458,7 +457,6 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 20,000.00" />
 		<property name="descriptor" ref="descriptor2" />
-		<property name="description" value="Alea iacta est." />
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employerEmployer" />
@@ -472,7 +470,6 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 30,000.50" />
 		<property name="descriptor" ref="descriptor3" />
-		<property name="description" value="Carpe diem." />
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer2Employer" />
@@ -486,7 +483,6 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 35,000.00" />
 		<property name="descriptor" ref="descriptor4" />
-		<property name="description" value="Hic et nunc." />
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer3Employer" />
@@ -500,7 +496,6 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 25,000.99" />
 		<property name="descriptor" ref="descriptor5" />
-		<property name="description" value="Ad infinitum et plus ultra." />
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer2Employer" />
