@@ -555,4 +555,36 @@ Duty
 + percentage: Double</panel_attributes>
     <additional_attributes/>
   </element>
+<element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>497</x>
+      <y>483</y>
+      <w>252</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Application 
+--
+reference: String{UNIQUE,NotBlank}
+employerJob: String{UNIQUE}
+creationMoment: Date{Temporal(TIMESTAMP)}
+status: Status(Pending, Accepted, Rejected)
+statement:String{NotBlank}
+skills:String{NotBlank}
+qualifications:String{NotBlank}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>448</y>
+      <w>133</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
 </diagram>
