@@ -42,6 +42,7 @@
         `skills` varchar(255),
         `statement` varchar(255),
         `status` integer,
+        `job_id` integer not null,
         `worker_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
@@ -309,6 +310,11 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        add constraint FK_6lnbc6fo3om54vugoh8icg78m 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `application` 
+       add constraint `FKoa6p4s2oyy7tf80xwc4r04vh6` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `application` 
        add constraint `FKmbjdoxi3o93agxosoate4sxbt` 

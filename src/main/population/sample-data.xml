@@ -594,5 +594,42 @@
 	<bean name="worker3Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="worker3UserAccount"/>
 	</bean>
+	
+	<!-- Applications -->
+	
+	<bean name="application1" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR3-JOB1" />
+		<property name="moment" value="2018/12/11 23:59" />
+		<property name="status" value="PENDING" />
+		<property name="statement" value="statement example" />
+		<property name="skills" value="Skills example 1" />
+		<property name="qualifications" value="Qualifications example 1" />
+		<property name="worker" ref="worker3Worker" />
+		<property name="job" ref="job1" />
+	</bean>
+	
+	<bean name="application2" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR2-JOB5" />
+		<property name="moment" value="2019/05/11 23:59" />
+		<property name="status" value="ACCEPTED" />
+		<property name="statement" value="statement example2" />
+		<property name="skills" value="Skills example 5" />
+		<property name="qualifications" value="Qualifications example 2" />
+		<property name="worker" ref="worker3Worker" />
+		<property name="job" ref="job5" />
+	</bean>
+	
+	<bean name="application3" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR2-JOB4" />
+		<property name="moment" value="2019/06/11 23:59" />
+		<property name="status" value="REJECTED" />
+		<property name="statement" value="statement example num3" />
+		<property name="skills" value="Skills example 2" />
+		<property name="qualifications" value="Qualifications example 3" />
+		<property name="worker" ref="worker2Worker" />
+		<property name="job" ref="job4" />
+	</bean>
+	
+	
 
 </beans>
