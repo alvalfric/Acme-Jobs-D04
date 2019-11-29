@@ -71,6 +71,8 @@
 
     drop table if exists `descriptor`;
 
+    drop table if exists `duty`;
+
     drop table if exists `employer`;
 
     drop table if exists `escobar_bulletin`;
