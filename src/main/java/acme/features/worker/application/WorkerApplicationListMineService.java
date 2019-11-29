@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.application.Application;
+import acme.entities.applications.Application;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -58,7 +58,7 @@ public class WorkerApplicationListMineService implements AbstractListService<Wor
 
 		Collection<Application> result;
 
-		result = this.repository.findManyAll();
+		result = this.repository.findManyByWorkerId(request.getPrincipal().getAccountId());
 
 		return result;
 	}

@@ -16,29 +16,13 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="administrator.announcement.form.label.title" path="title"/>
-	<jstl:if test= "${command != 'create'}">
-			<acme:form-moment  code="administrator.announcement.form.label.moment" path="moment" readonly="true"/>
-	</jstl:if>
+	<acme:form-textbox code="worker.application.form.label.reference" path="reference" readonly="true"/>
+	<acme:form-moment  code="worker.application.form.label.moment" path="moment" readonly="true"/>	
+	<acme:form-textarea  code="worker.application.form.label.status" path="status"/>
+	<acme:form-textarea  code="worker.application.form.label.statement" path="statement" readonly="true"/>
+	<acme:form-textarea  code="worker.application.form.label.skills" path="skills" readonly="true"/>
+	<acme:form-textarea  code="worker.application.form.label.qualifications" path="qualifications" readonly="true"/>
 	
-	<acme:form-url  code="administrator.announcement.form.label.moreInfo" path="moreInfo"/>
-	<acme:form-textarea  code="administrator.announcement.form.label.text" path="text"/>
-	
-	<acme:form-submit test="${command == 'show'}" 
-		code="administrator.announcement.form.button.update"
-		action="/administrator/announcement/update"/>
-	<acme:form-submit test="${command == 'show'}" 
-		code="administrator.announcement.form.button.delete"
-		action="/administrator/announcement/delete"/>
-	<acme:form-submit test="${command == 'create'}" 
-		code="administrator.announcement.form.button.create"
-		action="/administrator/announcement/create"/>
-	<acme:form-submit test="${command == 'update'}" 
-		code="administrator.announcement.form.button.update"
-		action="/administrator/announcement/update"/>
-	<acme:form-submit test="${command == 'delete'}" 
-		code="administrator.announcement.form.button.delete"
-		action="/administrator/announcement/delete"/>
-	
-	<acme:form-return code="administrator.announcement.form.button.return"/>
+	<acme:form-submit code="worker.application.form.button.update" action="/worker/application/update"/>	
+	<acme:form-return code="worker.application.form.button.return"/>
 </acme:form>

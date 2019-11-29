@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.components.CustomCommand;
-import acme.entities.application.Application;
+import acme.entities.applications.Application;
 import acme.entities.roles.Employer;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
@@ -21,15 +21,17 @@ public class EmployerApplicationController extends AbstractController<Employer, 
 	private EmployerApplicationListMineService	listService;
 	@Autowired
 	private EmployerApplicationShowService		showService;
-	@Autowired
-	private EmployerApplicationUpdateService	updateService;
+	/*
+	 * @Autowired
+	 * private EmployerApplicationUpdateService updateService;
+	 */
 
 
 	@PostConstruct
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		//super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 	}
 
 }

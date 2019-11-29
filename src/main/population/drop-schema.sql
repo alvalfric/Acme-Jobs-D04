@@ -1,4 +1,3 @@
-
     alter table `administrator` 
        drop 
        foreign key FK_2a5vcjo3stlfcwadosjfq49l1;
@@ -6,6 +5,10 @@
     alter table `anonymous` 
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
+
+    alter table `application` 
+       drop 
+       foreign key `FKoa6p4s2oyy7tf80xwc4r04vh6`;
 
     alter table `application` 
        drop 
@@ -26,7 +29,7 @@
     alter table `message` 
        drop 
        foreign key `FKik4epe9dp5q6uenarfyia7xin`;
-       
+
     alter table `job` 
        drop 
        foreign key `FKfqwyynnbcsq0htxho3vchpd2u`;
@@ -42,15 +45,12 @@
     alter table `thread_authenticated` 
        drop 
        foreign key `FKkuamwlt147dsxim98bfhh4dsr`;
-
     alter table `thread_authenticated` 
        drop 
        foreign key `FKjsja3s5mr66x5nxm9dd8kut3r`;
-
     alter table `thread_message` 
        drop 
        foreign key `FKrjegm8cujrxgbce9n1b78xuyo`;
-
     alter table `thread_message` 
        drop 
        foreign key `FKgjodhp3io8v829t92y1tdtb7u`;
@@ -87,6 +87,8 @@
 
     drop table if exists `descriptor`;
 
+    drop table if exists `duty`;
+
     drop table if exists `employer`;
 
     drop table if exists `escobar_bulletin`;
@@ -110,9 +112,9 @@
     drop table if exists `shout`;
 
     drop table if exists `thread`;
-
+    
     drop table if exists `thread_authenticated`;
-
+    
     drop table if exists `thread_message`;
 
     drop table if exists `user_account`;

@@ -1,4 +1,3 @@
-
     create table `administrator` (
        `id` integer not null,
         `version` integer not null,
@@ -42,6 +41,7 @@
         `skills` varchar(255),
         `statement` varchar(255),
         `status` integer,
+        `job_id` integer not null,
         `worker_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
@@ -90,7 +90,7 @@
         `picture` varchar(255),
         `slogan` varchar(255),
         `targeturl` varchar(255),
-        `cc_expiration_date` varchar(255),
+	      `cc_expiration_date` varchar(255),
         `cc_validation_number` varchar(255),
         `credit_card_number` varchar(255),
         primary key (`id`)
@@ -136,6 +136,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `duty` (
+       `id` integer not null,
+        `version` integer not null,
+        `description` varchar(255),
+        `percentage` double precision,
+        `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `employer` (
        `id` integer not null,
         `version` integer not null,
@@ -166,7 +175,7 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `message` (
+	  create table `message` (
        `id` integer not null,
         `version` integer not null,
         `body` varchar(255),
@@ -265,12 +274,12 @@
         `title` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
-
+    
     create table `thread_authenticated` (
        `thread_id` integer not null,
         `users_id` integer not null
     ) engine=InnoDB;
-
+    
     create table `thread_message` (
        `thread_id` integer not null,
         `messages_id` integer not null
@@ -345,6 +354,11 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        references `user_account` (`id`);
 
     alter table `application` 
+       add constraint `FKoa6p4s2oyy7tf80xwc4r04vh6` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
+
+    alter table `application` 
        add constraint `FKmbjdoxi3o93agxosoate4sxbt` 
        foreign key (`worker_id`) 
        references `worker` (`id`);
@@ -363,7 +377,6 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-
 
     alter table `message` 
        add constraint `FKik4epe9dp5q6uenarfyia7xin` 
@@ -389,17 +402,17 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        add constraint `FKkuamwlt147dsxim98bfhh4dsr` 
        foreign key (`users_id`) 
        references `authenticated` (`id`);
-
+       
     alter table `thread_authenticated` 
        add constraint `FKjsja3s5mr66x5nxm9dd8kut3r` 
        foreign key (`thread_id`) 
        references `thread` (`id`);
-
+       
     alter table `thread_message` 
        add constraint `FKrjegm8cujrxgbce9n1b78xuyo` 
        foreign key (`messages_id`) 
        references `message` (`id`);
-
+       
     alter table `thread_message` 
        add constraint `FKgjodhp3io8v829t92y1tdtb7u` 
        foreign key (`thread_id`) 

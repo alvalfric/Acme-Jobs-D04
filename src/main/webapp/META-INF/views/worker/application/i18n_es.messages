@@ -8,20 +8,23 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.announcement.list.label.moment = Momento
-administrator.announcement.list.label.title = Titulo
+worker.application.list.label.reference = Referencia
+worker.application.list.label.moment = Momento
+worker.application.list.label.status = Estatus
+
+worker.application.form.label.reference = Referencia
+worker.application.form.label.moment = Momento
+worker.application.form.label.status = Estatus
+worker.application.form.label.statement = Estamento
+worker.application.form.label.skills = Habilidades
+worker.application.form.label.qualifications = Cualificaciones
+
+worker.application.form.button.return = Volver
+
+worker.application.form.button.update = Actualizar
+worker.application.form.button.delete = Borrar
+worker.application.form.button.create = Crear
 
 
-administrator.announcement.form.label.title = Titulo
-administrator.announcement.form.label.moment = Momento
-administrator.announcement.form.label.moreInfo = Mas Info
-administrator.announcement.form.label.text = Texto
-administrator.announcement.form.button.return = Volver
-
-administrator.announcement.form.button.update = Actualizar
-administrator.announcement.form.button.delete = Borrar
-administrator.announcement.form.button.create = Crear
-
-
-administrator.announcement.error.NotBlank = No puede estar en blanco
-administrator.announcement.error.web = La web site debe ser escrita en la forma http://www.example.com
+worker.application.error.NotBlank = Its cannot be null
+worker.application.error.web = 

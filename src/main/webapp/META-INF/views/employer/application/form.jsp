@@ -18,7 +18,7 @@
 <acme:form>
 	<acme:form-textbox code="employer.application.form.label.reference" path="reference" readonly="true"/>
 	<acme:form-moment  code="employer.application.form.label.moment" path="moment" readonly="true"/>	
-	<acme:form-radio  code="employer.application.form.label.status" path="status"/>
+	<acme:form-textarea  code="employer.application.form.label.status" path="status"/>
 	<acme:form-textarea  code="employer.application.form.label.statement" path="statement" readonly="true"/>
 	<acme:form-textarea  code="employer.application.form.label.skills" path="skills" readonly="true"/>
 	<acme:form-textarea  code="employer.application.form.label.qualifications" path="qualifications" readonly="true"/>

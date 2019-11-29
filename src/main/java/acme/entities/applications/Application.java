@@ -1,5 +1,5 @@
 
-package acme.entities.application;
+package acme.entities.applications;
 
 import java.util.Date;
 
@@ -15,6 +15,7 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -36,7 +37,7 @@ public class Application extends DomainEntity {
 	@Past
 	private Date				moment;
 
-	@NotBlank
+	
 	private Status				status;
 
 	@NotBlank
@@ -54,13 +55,10 @@ public class Application extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Worker				worker;
-	/*
-	 * @NotNull
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne(optional = false)
-	 * private Job job;
-	 */
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Job					job;
 
 }
