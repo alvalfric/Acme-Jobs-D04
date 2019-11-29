@@ -20,13 +20,11 @@ public class WorkerApplicationController extends AbstractController<Worker, Appl
 	@Autowired
 	private WorkerApplicationListMineService	listService;
 	@Autowired
-	private WorkerApplicationShowService	showService;
+	private WorkerApplicationShowService		showService;
 	@Autowired
-	private WorkerApplicationCreateService	createService;
+	private WorkerApplicationCreateService		createService;
 	@Autowired
-	private WorkerApplicationUpdateService	updateService;
-	@Autowired
-	private WorkerApplicationDeleteService	deleteService;
+	private WorkerApplicationDeleteService		deleteService;
 
 
 	@PostConstruct
@@ -34,7 +32,6 @@ public class WorkerApplicationController extends AbstractController<Worker, Appl
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
