@@ -23,10 +23,6 @@
        drop 
        foreign key FK_na4dfobmeuxkwf6p75abmb2tr;
 
-    alter table `message` 
-       drop 
-       foreign key `FKik4epe9dp5q6uenarfyia7xin`;
-       
     alter table `job` 
        drop 
        foreign key `FKfqwyynnbcsq0htxho3vchpd2u`;
@@ -38,22 +34,6 @@
     alter table `provider` 
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
-
-    alter table `thread_authenticated` 
-       drop 
-       foreign key `FKkuamwlt147dsxim98bfhh4dsr`;
-
-    alter table `thread_authenticated` 
-       drop 
-       foreign key `FKjsja3s5mr66x5nxm9dd8kut3r`;
-
-    alter table `thread_message` 
-       drop 
-       foreign key `FKrjegm8cujrxgbce9n1b78xuyo`;
-
-    alter table `thread_message` 
-       drop 
-       foreign key `FKgjodhp3io8v829t92y1tdtb7u`;
 
     alter table `worker` 
        drop 
@@ -93,8 +73,6 @@
 
     drop table if exists `investor_record`;
 
-    drop table if exists `message`;
-
     drop table if exists `job`;
 
     drop table if exists `non_commercial_banner`;
@@ -108,12 +86,6 @@
     drop table if exists `rosado_bulletin`;
 
     drop table if exists `shout`;
-
-    drop table if exists `thread`;
-
-    drop table if exists `thread_authenticated`;
-
-    drop table if exists `thread_message`;
 
     drop table if exists `user_account`;
 

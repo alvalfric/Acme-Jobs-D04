@@ -217,27 +217,21 @@
   <bean id="comBannerr01" class="acme.entities.banners.CommercialBanner">
 		<property name="slogan" value="Just do it"/>
 		<property name="targetURL" value="https://www.nike.com/"/>
-		<property name="creditCardNumber" value="5500000000000004"/>
-		<property name="ccValidationNumber" value="123"/>
-		<property name="ccExpirationDate" value="02/20"/>
+		<property name="creditCard" value="5500000000000004"/>
 		<property name="picture" value="https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/gorfwjchoasrrzr1fggt/calzado-air-max-270-nnTrqDGR.jpg"/>
 	</bean>
 	
 	<bean id="comBannerr02" class="acme.entities.banners.CommercialBanner">
 		<property name="slogan" value="Think different"/>
 		<property name="targetURL" value="https://www.apple.com/"/>
-		<property name="creditCardNumber" value="4111111111111111"/>
-		<property name="ccValidationNumber" value="321"/>
-		<property name="ccExpirationDate" value="03/20"/>
+		<property name="creditCard" value="4111111111111111"/>
 		<property name="picture" value="https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201606271147"/>
 	</bean>
 	
 	<bean id="comBannerr03" class="acme.entities.banners.CommercialBanner">
 		<property name="slogan" value="Because you're worth it"/>
 		<property name="targetURL" value="https://www.loreal.com/"/>
-		<property name="creditCardNumber" value="340000000000009"/>
-		<property name="ccValidationNumber" value="911"/>
-		<property name="ccExpirationDate" value="04/20"/>
+		<property name="creditCard" value="340000000000009"/>
 		<property name="picture" value="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201903/29/00123416412171____6__516x640.jpg"/>
 	</bean>
 	
@@ -600,151 +594,5 @@
 	<bean name="worker3Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="worker3UserAccount"/>
 	</bean>
-	
-	<bean id="Message01" class="acme.entities.threads.Message">
-		<property name="user" ref ="worker3Authenticated"/>
-		<property name="title" value="Message 01"/>
-		<property name="moment" value="2019/11/01  11:22"/>
-		<property name="body" value="my body number 01"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message02" class="acme.entities.threads.Message">
-		<property name="user" ref ="worker3Authenticated"/>
-		<property name="title" value="Message 02"/>
-		<property name="moment" value="2019/11/02  11:22"/>
-		<property name="body" value="my body number 02"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message03" class="acme.entities.threads.Message">
-		<property name="user" ref ="worker2Authenticated"/>
-		<property name="title" value="Message 03"/>
-		<property name="moment" value="2019/11/03  11:22"/>
-		<property name="body" value="my body number 03"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message04" class="acme.entities.threads.Message">
-		<property name="user" ref ="worker2Authenticated"/>
-		<property name="title" value="Message 04"/>
-		<property name="moment" value="2019/11/04  11:22"/>
-		<property name="body" value="my body number 04"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message05" class="acme.entities.threads.Message">
-		<property name="user" ref ="workerAuthenticated"/>
-		<property name="title" value="Message 05"/>
-		<property name="moment" value="2019/11/05  11:22"/>
-		<property name="body" value="my body number 05"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message06" class="acme.entities.threads.Message">
-		<property name="user" ref ="workerAuthenticated"/>
-		<property name="title" value="Message 06"/>
-		<property name="moment" value="2019/11/06  11:22"/>
-		<property name="body" value="my body number 06"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message07" class="acme.entities.threads.Message">
-		<property name="user" ref ="employer3Authenticated"/>
-		<property name="title" value="Message 07"/>
-		<property name="moment" value="2019/11/07  11:22"/>
-		<property name="body" value="my body number 07"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message08" class="acme.entities.threads.Message">
-		<property name="user" ref ="employer3Authenticated"/>
-		<property name="title" value="Message 08"/>
-		<property name="moment" value="2019/11/08  11:22"/>
-		<property name="body" value="my body number 08"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message09" class="acme.entities.threads.Message">
-		<property name="user" ref ="employer2Authenticated"/>
-		<property name="title" value="Message 09"/>
-		<property name="moment" value="2019/11/09  11:22"/>
-		<property name="body" value="my body number 09"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	<bean id="Message10" class="acme.entities.threads.Message">
-		<property name="user" ref ="employer2Authenticated"/>
-		<property name="title" value="Message 10"/>
-		<property name="moment" value="2019/11/10  11:22"/>
-		<property name="body" value="my body number 10"/> 
-		<property name="tags" value="news, jobs, university"/> 
-	</bean>
-	
-	
-	
-	<bean id="Thread01" class="acme.entities.threads.Thread">
-		<property name="title" value="Sample thread 01"/>
-		<property name="moment" value="2019/10/29  11:22"/>
-		<property name="messages">
-			<list>
-				<ref bean="Message01"/>
-				<ref bean="Message03"/>
-				<ref bean="Message06"/>
-			</list>
-		</property>
-		
-		<property name="users">
-			<list>
-				<ref bean="workerAuthenticated"/>
-				<ref bean="worker2Authenticated"/>
-				<ref bean="employer3Authenticated"/>
-				<ref bean="worker3Authenticated"/>
-			</list>
-		</property>
-	</bean>
-	
-	<bean id="Thread02" class="acme.entities.threads.Thread">
-		<property name="title" value="Sample thread 02"/>
-		<property name="moment" value="2019/09/29  11:22"/>
-		<property name="messages">
-			<list>
-				<ref bean="Message02"/>
-				<ref bean="Message10"/>
-			</list>
-		</property>
-		
-		<property name="users">
-			<list>
-				<ref bean="employer2Authenticated"/>
-				<ref bean="worker3Authenticated"/>
-			</list>
-		</property>
-	</bean>
-	
-	<bean id="Thread03" class="acme.entities.threads.Thread">
-		<property name="title" value="Sample thread 03"/>
-		<property name="moment" value="2019/08/29  11:22"/>
-		<property name="messages">
-			<list>
-				<ref bean="Message04"/>
-				<ref bean="Message05"/>
-				<ref bean="Message07"/>
-				<ref bean="Message08"/>
-				<ref bean="Message09"/>
-			</list>
-		</property>
-		
-		<property name="users">
-			<list>
-				<ref bean="workerAuthenticated"/>
-				<ref bean="employer2Authenticated"/>
-				<ref bean="employer3Authenticated"/>
-				<ref bean="worker2Authenticated"/>
-			</list>
-		</property>
-	</bean>
-	
-	
 
 </beans>
