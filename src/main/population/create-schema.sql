@@ -114,6 +114,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `duty` (
+       `id` integer not null,
+        `version` integer not null,
+        `description` varchar(255),
+        `percentage` double precision,
+        `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `employer` (
        `id` integer not null,
         `version` integer not null,
