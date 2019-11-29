@@ -131,7 +131,7 @@
 	  
 	<bean id="Challenge01" class="acme.entities.challenges.Challenge">
 		<property name="title" value="Sample challenge 01"/>
-		<property name="deadline" value="2019/11/29  11:22"/>
+		<property name="deadline" value="2020/11/29  11:22"/>
 		<property name="description" value="my description number 01"/> 
 		<property name="reward" value='Gold'/>
 		<property name="goal" value='First'/>
