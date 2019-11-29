@@ -7,13 +7,14 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
+import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Duty {
+public class Duty extends DomainEntity {
 	//Serialisation identifier ----------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
