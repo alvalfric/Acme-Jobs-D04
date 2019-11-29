@@ -26,21 +26,7 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		// TODO Auto-generated method stub
 		assert request != null;
 
-		boolean result;
-		int jobId;
-		Job job;
-		Calendar calendar;
-		Date today;
-
-		jobId = request.getModel().getInteger("id");
-		job = this.repository.findOneJobById(jobId);
-
-		calendar = new GregorianCalendar();
-		today = calendar.getTime();
-
-		result = job.isFinalMode() && job.getDeadline().after(today);
-
-		return result;
+		return true;
 	}
 
 	@Override
@@ -51,7 +37,7 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "finalMode", "descriptor.description");
+		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
 	}
 
 	@Override
