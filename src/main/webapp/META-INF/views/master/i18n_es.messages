@@ -90,20 +90,19 @@ master.menu.authenticated.requests = Peticiones
 master.menu.authenticated.announcement= Anuncios
 master.menu.authenticated.challenge= Desafio
 master.menu.authenticated.company-records = Registros de Empresas
+master.menu.authenticated.thread = Mis Hilos
 master.menu.authenticated.job = Trabajos
 
-# master.menu.employer ########################################################
+# master.menu.employer ##########################################################
 
 master.menu.employer = Empleador
 master.menu.employer.job = Mis Trabajos
 
-
-
+# master.menu.worker ############################################################
 
 master.menu.worker.application = Mis Aplicaciones
 
-
-# master.menu.provider ########################################################
+# master.menu.provider ##########################################################
 
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito

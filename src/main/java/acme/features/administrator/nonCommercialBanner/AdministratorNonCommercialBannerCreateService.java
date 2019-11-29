@@ -69,10 +69,12 @@ public class AdministratorNonCommercialBannerCreateService implements AbstractCr
 			errors.state(request, !entity.getSlogan().isEmpty(), "slogan", "javax.validation.constraints.NotBlank.message");
 		}
 		if (!errors.hasErrors("targetURL")) {
-			errors.state(request, !entity.getTargetURL().matches(regexpurl), "targetURL", "javax.validation.constraints.Pattern.message", regexpurl);
+			errors.state(request, !entity.getTargetURL().isEmpty(), "targetURL", "javax.validation.constraints.NotBlank.message");
+			errors.state(request, entity.getTargetURL().matches(regexpurl), "targetURL", "javax.validation.constraints.Pattern.message", regexpurl);
 		}
 		if (!errors.hasErrors("picture")) {
-			errors.state(request, !entity.getTargetURL().matches(regexpurl), "picture", "javax.validation.constraints.Pattern.message", regexpurl);
+			errors.state(request, !entity.getPicture().isEmpty(), "picture", "javax.validation.constraints.NotBlank.message");
+			errors.state(request, entity.getPicture().matches(regexpurl), "picture", "javax.validation.constraints.Pattern.message", regexpurl);
 		}
 
 	}
