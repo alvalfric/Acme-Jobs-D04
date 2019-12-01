@@ -22,18 +22,25 @@
 		type : 'bar',
 		data : {
 			labels : [
-					"Prueba"
+				"Prueba", "Prueba", "Prueba"
 			],
 			datasets : [
 				{
 					label : '',
 					data : [
-						<jstl:out value="${totalNumberOfAnnouncements}" escapeXml="false"/>
+						<jstl:out value="${Integer.parseInt(totalNumberOfCompanyRecordsGroupedBySector[0][1])}" escapeXml="false"/>
+						<jstl:forEach var="duty" items="${totalNumberOfCompanyRecordsGroupedBySector}" begin="1">
+							,<jstl:out value="${Integer.parseInt(duty[1])}" escapeXml="false"/>
+						</jstl:forEach>
 					],
 					backgroundColor : [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(255, 99, 132, 0.2)',
 							'rgba(255, 99, 132, 0.2)'
 					],
 					borderColor : [
+							'rgba(255,99,132,1)',
+							'rgba(255,99,132,1)',
 							'rgba(255,99,132,1)'
 					],
 					borderWidth : 1
