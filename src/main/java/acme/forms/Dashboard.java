@@ -27,7 +27,9 @@ public class Dashboard implements Serializable {
 	Double						maximumRewardOfActiveOffers;
 	Double						averageRewardOfActiveOffers;
 	Double						standardDeviationOfActiveOffers;
-	String[]					totalNumberOfCompanyRecordsGroupedBySector;
-	String[]					totalNumberOfInvestorRecordsGroupedBySector;
+	String[][]					totalNumberOfCompanyRecordsGroupedBySector;
+	String[][]					totalNumberOfInvestorRecordsGroupedBySector;
 
+	String						labelsOfTotalNumberOfCompanyRecordsGroupedBySector;
+	String						valuesOfTotalNumberOfCompanyRecordsGroupedBySector;
 }
