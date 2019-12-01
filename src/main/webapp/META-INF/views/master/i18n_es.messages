@@ -106,6 +106,8 @@ master.menu.worker.application = Mis Aplicaciones
 
 master.menu.auditor= Auditor
 master.menu.auditor.auditrecord= Listar Archivos de Auditoria
+master.menu.auditor.job.done= Trabajos auditados
+master.menu.auditor.job.pending = Trabajos para auditar
 
 # master.menu.provider ##########################################################
 
