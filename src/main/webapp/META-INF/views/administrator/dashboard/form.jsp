@@ -15,26 +15,87 @@
 	<acme:form-integer code="administrator.dashboard.form.label.avgOffers" path="averageRewardOfActiveOffers" readonly="true" />
 </acme:form>
 
-<canvas id="myChart" width="250" height="50"></canvas>
+<canvas id="companiesSectorsChart" width="250" height="125"></canvas>
+<canvas id="investorsSectorsChart" width="250" height="125"></canvas>
 <script>
-	var ctx = document.getElementById("myChart").getContext('2d');
-	var myChart = new Chart(ctx, {
+	var ctxCS = document.getElementById("companiesSectorsChart").getContext('2d');
+	var myChart = new Chart(ctxCS, {
 		type : 'bar',
 		data : {
 			labels : [
-					"Prueba"
+				"<jstl:out value='${totalNumberOfCompanyRecordsGroupedBySector[0][0]}' escapeXml="false"/>",
+				<jstl:forEach var="duty" items="${totalNumberOfCompanyRecordsGroupedBySector}" begin="1">
+					"<jstl:out value='${duty[0]}' escapeXml="false"/>",
+				</jstl:forEach>
 			],
 			datasets : [
 				{
-					label : '',
+					label : [
+						"Number of companies grouped by sector"
+					],
 					data : [
-						<jstl:out value="${totalNumberOfAnnouncements}" escapeXml="false"/>
+						<jstl:out value="${Integer.parseInt(totalNumberOfCompanyRecordsGroupedBySector[0][1])}" escapeXml="false"/>,
+						<jstl:forEach var="duty" items="${totalNumberOfCompanyRecordsGroupedBySector}" begin="1">
+							<jstl:out value="${Integer.parseInt(duty[1])}" escapeXml="false"/>,
+						</jstl:forEach>
 					],
 					backgroundColor : [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(255, 99, 132, 0.2)',
 							'rgba(255, 99, 132, 0.2)'
 					],
 					borderColor : [
+							'rgba(255,99,132,1)',
+							'rgba(255,99,132,1)',
 							'rgba(255,99,132,1)'
+					],
+					borderWidth : 1
+				}
+			]
+		},
+		options : {
+			scales : {
+				yAxes : [
+					{
+						ticks : {
+							beginAtZero : true
+						}
+					}
+				]
+			}
+		}
+	});
+	
+	var ctxIS = document.getElementById("investorsSectorsChart").getContext('2d');
+	var myChart = new Chart(ctxIS, {
+		type : 'bar',
+		data : {
+			labels : [
+				"<jstl:out value='${totalNumberOfInvestorRecordsGroupedBySector[0][0]}' escapeXml="false"/>",
+				<jstl:forEach var="duty" items="${totalNumberOfInvestorRecordsGroupedBySector}" begin="1">
+					"<jstl:out value='${duty[0]}' escapeXml="false"/>",
+				</jstl:forEach>
+			],
+			datasets : [
+				{
+					label : [
+						"Number of investors grouped by sector"
+					],
+					data : [
+						<jstl:out value="${Integer.parseInt(totalNumberOfInvestorRecordsGroupedBySector[0][1])}" escapeXml="false"/>,
+						<jstl:forEach var="duty" items="${totalNumberOfInvestorRecordsGroupedBySector}" begin="1">
+							<jstl:out value="${Integer.parseInt(duty[1])}" escapeXml="false"/>,
+						</jstl:forEach>
+					],
+					backgroundColor : [
+							'rgba(74, 255, 50, 0.2)',
+							'rgba(74, 255, 50, 0.2)',
+							'rgba(74, 255, 50, 0.2)'
+					],
+					borderColor : [
+						'rgba(74, 255, 50, 1)',
+						'rgba(74, 255, 50, 1)',
+						'rgba(74, 255, 50, 1)'
 					],
 					borderWidth : 1
 				}
