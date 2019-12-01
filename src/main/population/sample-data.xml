@@ -798,4 +798,131 @@
 			</list>
 		</property>
 	</bean>
+	
+	
+	<!--Audit Record-->
+	
+	<!--Audit Record 1-->
+	<bean name="auditrecord1" class= "acme.entities.auditrecord.Auditrecord">
+	  <property name="reference" value="job1-auditor1"/>
+	  <property name="title" value="Title 1"/>
+	  <property name="status" value="false" />
+	  <property name="moment" value="2030/12/11 23:59"/>
+	  <property name="body" value="I m 1 a audir record 1" />
+	  <property name="job" ref="job1" />
+	  <property name="auditor" ref="auditor1Auditor" />
+   </bean>
+   
+   <bean name="auditrecord2" class= "acme.entities.auditrecord.Auditrecord">
+	  <property name="reference" value="job2-auditor2"/>
+	  <property name="title" value="Title 2"/>
+	  <property name="status" value="true" />
+	  <property name="moment" value="2030/12/11 23:59"/>
+	  <property name="body" value="I m 2 a audir record 2" />
+	  <property name="job" ref="job2" />
+	  <property name="auditor" ref="auditor2Auditor" />
+   </bean>
+    <bean name="auditrecord3" class= "acme.entities.auditrecord.Auditrecord">
+	  <property name="reference" value="job3-auditor2"/>
+	  <property name="title" value="Title 3"/>
+	  <property name="status" value="true" />
+	  <property name="moment" value="2030/12/11 23:59"/>
+	  <property name="body" value="I m 3 a audir record 3" />
+	  <property name="job" ref="job2" />
+	  <property name="auditor" ref="auditor2Auditor" />
+   </bean>
+   
+   <!--  Auditors-->
+   <!--  Auditor 1-->
+ <bean name="auditor1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="auditor1"/>
+		<property name="password" value="auditor1"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="auditor"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="auditor1@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="auditor1Auditor"/>
+				<ref bean="auditor1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="auditor1Auditor" class="acme.entities.roles.Auditor">
+		<property name="firm" value="xxxxxxxxxxxxx"/>
+		<property name="responsabilityStat" value="responsability Statement 1"/>
+		<property name="userAccount" ref="auditor1UserAccount" />
+	</bean>
+
+	<bean name="auditor1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="auditor1UserAccount" />
+	</bean>
+	
+	<!-- Auditor 2 -->
+	
+	 <bean name="auditor2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="auditor2"/>
+		<property name="password" value="auditor2"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="auditor"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="auditor2@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="auditor2Auditor"/>
+				<ref bean="auditor2Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="auditor2Auditor" class="acme.entities.roles.Auditor">
+		<property name="firm" value="yyyyyyyyyyyyyyyyyyyyyy"/>
+		<property name="responsabilityStat" value="responsability Statement 2"/>
+		<property name="userAccount" ref="auditor2UserAccount" />
+	</bean>
+
+	<bean name="auditor2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="auditor2UserAccount" />
+	</bean>
+	
+	<!-- Auditor 3 -->
+	
+	 <bean name="auditor3UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="auditor3"/>
+		<property name="password" value="auditor3"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="auditor"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="auditor3@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="auditor3Auditor"/>
+				<ref bean="auditor3Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="auditor3Auditor" class="acme.entities.roles.Auditor">
+		<property name="firm" value="zzzzzzzzzzzzzzzzzzzzzz"/>
+		<property name="responsabilityStat" value="responsability Statement 3"/>
+		<property name="userAccount" ref="auditor3UserAccount" />
+	</bean>
+
+	<bean name="auditor3Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="auditor3UserAccount" />
+	</bean>
+	
 </beans>
