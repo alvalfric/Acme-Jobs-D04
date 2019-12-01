@@ -101,7 +101,10 @@ master.menu.authenticated.job = Jobs
 master.menu.employer = Employer
 master.menu.employer.job = My Jobs
 
+# master.menu.auditor ###################################################
 
+master.menu.auditor= Auditor
+master.menu.auditor.auditrecord= Lists Audit Record
 
 master.menu.worker.application = Applications
 
