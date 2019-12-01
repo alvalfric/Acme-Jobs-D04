@@ -1,9 +1,13 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.jobs.Descriptor;
+import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
@@ -37,7 +41,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -50,7 +54,12 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "finalMode", "descriptor.description");
+		request.unbind(entity, model, "salary", "moreInfo", "finalMode", "descriptor.description", "descriptor.duties");
+		Descriptor descriptor = entity.getDescriptor();
+		model.setAttribute("descriptor", descriptor);
+		Collection<Duty> duties = descriptor.getDuties();
+		model.setAttribute("duties", duties);
+		System.out.println(duties);
 	}
 
 	@Override
@@ -63,6 +72,11 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneJobById(id);
+		result.getDescriptor().getDuties().size();
+
+		for (Duty duty : result.getDescriptor().getDuties()) {
+			System.out.println(duty.getTitle());
+		}
 
 		return result;
 	}

@@ -131,7 +131,7 @@
 	  
 	<bean id="Challenge01" class="acme.entities.challenges.Challenge">
 		<property name="title" value="Sample challenge 01"/>
-		<property name="deadline" value="2019/12/29  11:22"/>
+		<property name="deadline" value="2020/12/29  11:22"/>
 		<property name="description" value="my description number 01"/> 
 		<property name="reward" value='Gold'/>
 		<property name="goal" value='First'/>
@@ -152,7 +152,7 @@
 	</bean>
 	<bean id="Challenge04" class="acme.entities.challenges.Challenge">
 		<property name="title" value="Sample challenge 04"/>
-		<property name="deadline" value="2019/11/30   23:22"/>
+		<property name="deadline" value="2020/11/30   23:22"/>
 		<property name="description" value="my description number 04"/> 
 		<property name="reward" value='Golde'/>
 		<property name="goal" value='First'/>
@@ -402,12 +402,36 @@
 		<property name="userAccount" ref="employer3UserAccount"/>
 	</bean>
 	
+	<!-- Duty -->
+	
+	<!-- Duty 1 -->
+	
+	<bean name="duty1" class="acme.entities.jobs.Duty">
+		<property name="title" value="Job1 Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="50" />
+		<property name="descriptor" ref="descriptor1"/>
+	</bean>
+	
+	<bean name="duty2" class="acme.entities.jobs.Duty">
+		<property name="title" value="Job2 Duty2" />
+		<property name="description" value="Duty2" />
+		<property name="percentage" value="50" />
+		<property name="descriptor" ref="descriptor1"/>
+	</bean>
+	
 	<!-- Descriptor -->
 	
 	<!-- Descriptor 1 -->
 	
 	<bean name="descriptor1" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Lorem ipsum sit dolor amet." />
+		<property name="duties">
+			<list>
+				<ref bean="duty1"/>
+				<ref bean="duty2"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Descriptor 2 -->
@@ -471,7 +495,7 @@
 		<property name="salary" value="€ 30,000.50" />
 		<property name="descriptor" ref="descriptor3" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="finalMode" value="true" />
+		<property name="finalMode" value="false" />
 		<property name="employer" ref="employer2Employer" />
 	</bean>
 	
