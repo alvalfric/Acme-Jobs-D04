@@ -100,10 +100,12 @@ master.menu.authenticated.job = Jobs
 
 master.menu.employer = Employer
 master.menu.employer.job = My Jobs
+master.menu.employer.application = My Applications
 
+# master.menu.worker ########################################################
 
-
-master.menu.worker.application = Applications
+master.menu.worker = Worker
+master.menu.worker.application = My Applications
 
 # master.menu.provider ########################################################
 

@@ -26,19 +26,6 @@ public class EmployerApplicationListMineService implements AbstractListService<E
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
-		/*
-		 * boolean result;
-		 * int applicationId;
-		 * Application application;
-		 * Employer employer;
-		 * Principal principal;
-		 *
-		 * applicationId = request.getModel().getInteger("id");
-		 * application = this.repository.findOneByApplicationId(applicationId);
-		 * employer = application.getJob().getEmployer();
-		 * principal = request.getPrincipal();
-		 * result = employer.getUserAccount().getId() == principal.getAccountId();
-		 */
 
 		return true;
 	}
@@ -58,7 +45,7 @@ public class EmployerApplicationListMineService implements AbstractListService<E
 
 		Collection<Application> result;
 
-		result = this.repository.findManyAll();
+		result = this.repository.findManyByEmployerId(request.getPrincipal().getActiveRoleId());
 
 		return result;
 	}

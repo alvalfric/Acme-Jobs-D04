@@ -8,9 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-employer.application.list.label.reference
-employer.application.list.label.moment
-employer.application.list.label.status
+employer.application.list.label.reference = Reference
+employer.application.list.label.moment = Moment
+employer.application.list.label.status = Status 
 
 employer.application.form.label.reference = Reference
 employer.application.form.label.moment = Moment

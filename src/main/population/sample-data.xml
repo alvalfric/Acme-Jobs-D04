@@ -152,7 +152,7 @@
 	</bean>
 	<bean id="Challenge04" class="acme.entities.challenges.Challenge">
 		<property name="title" value="Sample challenge 04"/>
-		<property name="deadline" value="2019/11/30   23:22"/>
+		<property name="deadline" value="2020/11/30   23:22"/>
 		<property name="description" value="my description number 04"/> 
 		<property name="reward" value='Golde'/>
 		<property name="goal" value='First'/>
@@ -602,7 +602,7 @@
 		<property name="reference" value="WOR3-JOB1" />
 		<property name="moment" value="2018/12/11 23:59" />
 		<property name="status" value="PENDING" />
-		<property name="statement" value="statement example" />
+		<property name="statement" value="Statement example 1" />
 		<property name="skills" value="Skills example 1" />
 		<property name="qualifications" value="Qualifications example 1" />
 		<property name="worker" ref="worker3Worker" />
@@ -624,12 +624,45 @@
 		<property name="reference" value="WOR2-JOB4" />
 		<property name="moment" value="2019/06/11 23:59" />
 		<property name="status" value="REJECTED" />
-		<property name="statement" value="statement example num3" />
-		<property name="skills" value="Skills example 2" />
+		<property name="statement" value="Statement example 3" />
+		<property name="skills" value="Skills example 3" />
 		<property name="qualifications" value="Qualifications example 3" />
 		<property name="worker" ref="worker2Worker" />
 		<property name="job" ref="job4" />
-  </bean>
+    </bean>
+    
+    <bean name="application4" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR1-JOB3" />
+		<property name="moment" value="2019/08/21 12:59" />
+		<property name="status" value="ACCEPTED" />
+		<property name="statement" value="Statement example 4" />
+		<property name="skills" value="Skills example 4" />
+		<property name="qualifications" value="Qualifications example 4" />
+		<property name="worker" ref="workerWorker" />
+		<property name="job" ref="job3" />
+    </bean>
+    
+    <bean name="application5" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR1-JOB1" />
+		<property name="moment" value="2019/03/15 16:59" />
+		<property name="status" value="PENDING" />
+		<property name="statement" value="Statement example 5" />
+		<property name="skills" value="Skills example 5" />
+		<property name="qualifications" value="Qualifications example 5" />
+		<property name="worker" ref="workerWorker" />
+		<property name="job" ref="job1" />
+    </bean>
+    
+    <bean name="application6" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR1-JOB2" />
+		<property name="moment" value="2019/10/10 10:10" />
+		<property name="status" value="REJECTED" />
+		<property name="statement" value="Statement example 6" />
+		<property name="skills" value="Skills example 6" />
+		<property name="qualifications" value="Qualifications example 3" />
+		<property name="worker" ref="workerWorker" />
+		<property name="job" ref="job2" />
+    </bean>
   
 	<bean id="Message01" class="acme.entities.threads.Message">
 		<property name="user" ref ="worker3Authenticated"/>

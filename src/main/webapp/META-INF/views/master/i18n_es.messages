@@ -97,9 +97,10 @@ master.menu.authenticated.job = Trabajos
 
 master.menu.employer = Empleador
 master.menu.employer.job = Mis Trabajos
+master.menu.employer.application = Mis Aplicaciones
 
 # master.menu.worker ############################################################
-
+master.menu.worker = Trabajador
 master.menu.worker.application = Mis Aplicaciones
 
 # master.menu.provider ##########################################################
