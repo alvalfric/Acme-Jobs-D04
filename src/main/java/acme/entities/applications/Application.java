@@ -37,8 +37,8 @@ public class Application extends DomainEntity {
 	@Past
 	private Date				moment;
 
-	
-	private Status				status;
+	@NotBlank
+	private String				status;
 
 	@NotBlank
 	private String				statement;

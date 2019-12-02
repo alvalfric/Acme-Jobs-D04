@@ -41,7 +41,7 @@
         `reference` varchar(255),
         `skills` varchar(255),
         `statement` varchar(255),
-        `status` integer,
+        `status` varchar(255),
         `job_id` integer not null,
         `worker_id` integer not null,
         primary key (`id`)
@@ -343,6 +343,9 @@
 
     alter table `application` 
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
+create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
+create index IDXmgvhy7dlsdj1h0c8yb46i6by1 on `challenge` (`title`, `deadline`);
+create index IDXh7bve39okm3gjs4blcchj12j2 on `company_record` (`star_score`);
 
     alter table `auditrecord` 
        add constraint UK_q0jl5notxl79ibm8ugpnyshex unique (`reference`);
@@ -397,7 +400,7 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        add constraint `FKmbjdoxi3o93agxosoate4sxbt` 
        foreign key (`worker_id`) 
        references `worker` (`id`);
-
+       
     alter table `auditor` 
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
        foreign key (`user_account_id`) 
@@ -437,7 +440,7 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        add constraint `FK3cc3garl37bl7gswreqwr7pj4` 
        foreign key (`descriptor_id`) 
        references `descriptor` (`id`);
-
+       
     alter table `employer` 
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 
