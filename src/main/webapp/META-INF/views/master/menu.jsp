@@ -81,6 +81,8 @@
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 	       <acme:menu-suboption code="master.menu.auditor.auditrecord" action="/auditor/auditrecord/list-mine"/>
+	       <acme:menu-suboption code="master.menu.auditor.job.pending" action="/auditor/job/list-pending"/>
+	       <acme:menu-suboption code="master.menu.auditor.job.done" action="/auditor/job/list-done"/>
 	</acme:menu-option>
 
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">

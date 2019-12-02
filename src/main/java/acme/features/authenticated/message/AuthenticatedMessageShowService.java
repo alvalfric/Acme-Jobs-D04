@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.thread;
+package acme.features.authenticated.message;
 
 import java.util.Collection;
 
@@ -7,47 +7,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.threads.Message;
-import acme.entities.threads.Thread;
+import acme.entities.threads.Message;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedThreadShowService implements AbstractShowService<Authenticated, Thread> {
+public class AuthenticatedMessageShowService implements AbstractShowService<Authenticated, Message> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedThreadRepository repository;
+	private AuthenticatedMessageRepository repository;
 
 
 	// AbstractShowService<Authenticated, Announcement> interface -------------
 
 	@Override
-	public boolean authorise(final Request<Thread> request) {
+	public boolean authorise(final Request<Message> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Thread> request, final Thread entity, final Model model) {
+	public void unbind(final Request<Message> request, final Message entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
 		request.unbind(entity, model, "title", "moment");
-		Collection<Message> messages = entity.getMessages();
-		model.setAttribute("messages", messages);
 
 	}
 
 	@Override
-	public Thread findOne(final Request<Thread> request) {
+	public Message findOne(final Request<Message> request) {
 		assert request != null;
 
-		Thread result;
+		Message result;
 		int id;
 
 		id = request.getModel().getInteger("id");
