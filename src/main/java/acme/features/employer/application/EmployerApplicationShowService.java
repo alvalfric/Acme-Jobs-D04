@@ -19,13 +19,13 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 	private EmployerApplicationRepository repository;
 
 
-	// AbstractShowService<Authenticated, Application> interface -------------
+	// AbstractShowService<Employer, Application> interface -------------
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		return true;
+		return this.repository.findOneByApplicationId(request.getModel().getInteger("id")).getJob().getEmployer().getUserAccount().getId() == request.getPrincipal().getAccountId();
 	}
 
 	@Override

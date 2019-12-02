@@ -19,13 +19,13 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 	private WorkerApplicationRepository repository;
 
 
-	// AbstractShowService<Authenticated, Application> interface -------------
+	// AbstractShowService<Worker, Application> interface -------------
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		return true;
+		return this.repository.findOneByApplicationId(request.getModel().getInteger("id")).getWorker().getUserAccount().getId() == request.getPrincipal().getAccountId();
 	}
 
 	@Override

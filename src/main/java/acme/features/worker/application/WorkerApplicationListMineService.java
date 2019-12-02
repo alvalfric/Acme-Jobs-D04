@@ -26,8 +26,8 @@ public class WorkerApplicationListMineService implements AbstractListService<Wor
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
-		//El error que aqui salta es qel model.getInteger("id")
-		return true;//this.repository.findOneByApplicationId(request.getModel().getInteger("id")).getWorker().getUserAccount().getId() == request.getPrincipal().getAccountId();
+
+		return true;
 	}
 
 	@Override
