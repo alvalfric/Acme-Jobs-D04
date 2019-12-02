@@ -2,12 +2,15 @@
 package acme.features.authenticated.job;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.jobs.Descriptor;
+import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -55,7 +58,11 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "finalMode", "descriptor.description");
+		request.unbind(entity, model, "salary", "moreInfo", "finalMode", "descriptor.description", "descriptor.duties");
+		Descriptor descriptor = entity.getDescriptor();
+		model.setAttribute("descriptor", descriptor);
+		Collection<Duty> duties = descriptor.getDuties();
+		model.setAttribute("duties", duties);
 	}
 
 	@Override
@@ -68,6 +75,7 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneJobById(id);
+		result.getDescriptor().getDuties().size();
 
 		return result;
 	}

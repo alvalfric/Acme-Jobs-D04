@@ -14,6 +14,4 @@ employer.job.form.label.duty.title = Title
 employer.job.form.label.duty.description = Description
 employer.job.form.label.duty.percentage = Percentage of work per week
 
-administrator.dashboard.chart.label.companyInvestor = Chart of Company Records and Investor Records
-
 employer.job.form.button.return = Return

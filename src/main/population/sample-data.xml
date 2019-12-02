@@ -420,6 +420,55 @@
 		<property name="descriptor" ref="descriptor1"/>
 	</bean>
 	
+	<bean name="duty3" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="100" />
+		<property name="descriptor" ref="descriptor2"/>
+	</bean>
+	
+	<bean name="duty4" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="100" />
+		<property name="descriptor" ref="descriptor3"/>
+	</bean>
+	
+	<bean name="duty5" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="100" />
+		<property name="descriptor" ref="descriptor4"/>
+	</bean>
+	
+	<bean name="duty6" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty2" />
+		<property name="description" value="Duty2" />
+		<property name="percentage" value="10" />
+		<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean name="duty7" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty3" />
+		<property name="description" value="Duty3" />
+		<property name="percentage" value="40" />
+		<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean name="duty8" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty4" />
+		<property name="description" value="Duty4" />
+		<property name="percentage" value="40" />
+		<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean name="duty9" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="20" />
+		<property name="descriptor" ref="descriptor5"/>
+	</bean>
+		
 	<!-- Descriptor -->
 	
 	<!-- Descriptor 1 -->
@@ -438,24 +487,47 @@
 	
 	<bean name="descriptor2" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Alea iacta est." />
+		<property name="duties">
+			<list>
+				<ref bean="duty3"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Descriptor 3 -->
 	
 	<bean name="descriptor3" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Carpe diem." />
+		<property name="duties">
+			<list>
+				<ref bean="duty4"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Descriptor 4 -->
 	
 	<bean name="descriptor4" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Hic et nunc." />
+		<property name="duties">
+			<list>
+				<ref bean="duty5"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Descriptor 5 -->
 	
 	<bean name="descriptor5" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Ad infinitum et plus ultra." />
+		<property name="duties">
+			<list>
+				<ref bean="duty6"/>
+				<ref bean="duty7"/>
+				<ref bean="duty8"/>
+				<ref bean="duty9"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Job -->
