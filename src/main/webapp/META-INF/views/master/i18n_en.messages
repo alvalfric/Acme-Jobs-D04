@@ -105,6 +105,8 @@ master.menu.employer.job = My Jobs
 
 master.menu.auditor= Auditor
 master.menu.auditor.auditrecord= Lists Audit Record
+master.menu.auditor.job.done= Audited Jobs
+master.menu.auditor.job.pending = Jobs to Audit
 
 master.menu.worker.application = Applications
 
