@@ -103,6 +103,13 @@ master.menu.employer.application = Mis Aplicaciones
 master.menu.worker = Trabajador
 master.menu.worker.application = Mis Aplicaciones
 
+# master.menu.auditor ###################################################
+
+master.menu.auditor= Auditor
+master.menu.auditor.auditrecord= Listar Archivos de Auditoria
+master.menu.auditor.job.done= Trabajos auditados
+master.menu.auditor.job.pending = Trabajos para auditar
+
 # master.menu.provider ##########################################################
 
 master.menu.provider = Proveedor

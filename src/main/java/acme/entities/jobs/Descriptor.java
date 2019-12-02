@@ -1,8 +1,14 @@
 
 package acme.entities.jobs;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -22,4 +28,9 @@ public class Descriptor extends DomainEntity {
 	@NotBlank
 	private String description;
 
+	// Relationships ------------------------------------------------------
+
+	@NotNull
+	@OneToMany(fetch = FetchType.EAGER)
+	private Collection<@Valid Duty> duties;
 }

@@ -1,9 +1,12 @@
 
 package acme.features.authenticated.thread;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.threads.Message;
 import acme.entities.threads.Thread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -35,6 +38,9 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		assert model != null;
 
 		request.unbind(entity, model, "title", "moment");
+		Collection<Message> messages = entity.getMessages();
+		model.setAttribute("messages", messages);
+
 	}
 
 	@Override

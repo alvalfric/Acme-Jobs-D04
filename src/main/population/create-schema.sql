@@ -47,6 +47,28 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `auditor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `firm` varchar(255),
+        `responsability_stat` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `auditrecord` (
+       `id` integer not null,
+        `version` integer not null,
+        `body` varchar(255),
+        `moment` datetime(6),
+        `reference` varchar(255),
+        `status` bit not null,
+        `title` varchar(255),
+        `auditor_id` integer not null,
+        `job_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `authenticated` (
        `id` integer not null,
         `version` integer not null,
@@ -137,12 +159,18 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `descriptor_duty` (
+       `descriptor_id` integer not null,
+        `duties_id` integer not null
+    ) engine=InnoDB;
+
     create table `duty` (
        `id` integer not null,
         `version` integer not null,
         `description` varchar(255),
         `percentage` double precision,
         `title` varchar(255),
+        `descriptor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -282,7 +310,8 @@
 
     create table `thread_message` (
        `thread_id` integer not null,
-        `messages_id` integer not null
+        `messages_id` integer not null,
+        primary key (`thread_id`, `messages_id`)
     ) engine=InnoDB;
 
     create table `user_account` (
@@ -317,6 +346,15 @@
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDXmgvhy7dlsdj1h0c8yb46i6by1 on `challenge` (`title`, `deadline`);
 create index IDXh7bve39okm3gjs4blcchj12j2 on `company_record` (`star_score`);
+
+    alter table `auditrecord` 
+       add constraint UK_q0jl5notxl79ibm8ugpnyshex unique (`reference`);
+create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
+create index IDXmgvhy7dlsdj1h0c8yb46i6by1 on `challenge` (`title`, `deadline`);
+create index IDXh7bve39okm3gjs4blcchj12j2 on `company_record` (`star_score`);
+
+    alter table `descriptor_duty` 
+       add constraint UK_kvr5rclgwa51d625rmx13ke96 unique (`duties_id`);
 create index IDXk2t3uthe649ao1jllcuks0gv4 on `investor_record` (`stars`);
 
     alter table `job` 
@@ -362,6 +400,21 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        add constraint `FKmbjdoxi3o93agxosoate4sxbt` 
        foreign key (`worker_id`) 
        references `worker` (`id`);
+       
+    alter table `auditor` 
+       add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `auditrecord` 
+       add constraint `FKditgyx355sc4ye86w7tj22cq6` 
+       foreign key (`auditor_id`) 
+       references `auditor` (`id`);
+
+    alter table `auditrecord` 
+       add constraint `FKa5p4w0gnuwmtb07juvrg8ptn6` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
@@ -373,6 +426,21 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `descriptor_duty` 
+       add constraint `FK57eqqlhihwvd53ykpmsiqlx2p` 
+       foreign key (`duties_id`) 
+       references `duty` (`id`);
+
+    alter table `descriptor_duty` 
+       add constraint `FKqitedkrksd2w8qyp1fp5eao9f` 
+       foreign key (`descriptor_id`) 
+       references `descriptor` (`id`);
+
+    alter table `duty` 
+       add constraint `FK3cc3garl37bl7gswreqwr7pj4` 
+       foreign key (`descriptor_id`) 
+       references `descriptor` (`id`);
+       
     alter table `employer` 
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 

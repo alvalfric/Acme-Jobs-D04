@@ -12,6 +12,9 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +49,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert model != null;
 
 		request.unbind(entity, model, "totalNumberOfAnnouncements", "totalNumberOfCompanyRecords", "totalNumberOfInvestorRecords", "mininumRewardOfActiveRequests", "maximumRewardOfActiveRequests", "averageRewardOfActiveRequests",
-			"mininumRewardOfActiveOffers", "maximumRewardOfActiveOffers", "averageRewardOfActiveOffers", "totalNumberOfCompanyRecordsGroupedBySector", "totalNumberOfInvestorRecordsGroupedBySector");
+			"mininumRewardOfActiveOffers", "maximumRewardOfActiveOffers", "averageRewardOfActiveOffers", "totalNumberOfCompanyRecordsGroupedBySector", "totalNumberOfInvestorRecordsGroupedBySector", "chartCompanyInvestor");
 	}
 
 	@Override
@@ -66,6 +69,63 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setAverageRewardOfActiveOffers(this.repository.averageRewardOfActiveOffers());
 		result.setTotalNumberOfCompanyRecordsGroupedBySector(this.repository.countNumberOfCompanyRecordsGroupedBySector());
 		result.setTotalNumberOfInvestorRecordsGroupedBySector(this.repository.countNumberOfInvestorRecordsGroupedBySector());
+
+		List<String> labels = new ArrayList<>();
+
+		for (String[] item : this.repository.countNumberOfCompanyRecordsGroupedBySector()) {
+			labels.add(item[0]);
+		}
+		for (String[] item : this.repository.countNumberOfInvestorRecordsGroupedBySector()) {
+			if (labels.contains(item[0])) {
+			} else {
+				labels.add(item[0]);
+			}
+		}
+
+		List<String> cr_labels = new ArrayList<>();
+		List<String> cr_data = new ArrayList<>();
+		List<String> ir_labels = new ArrayList<>();
+		List<String> ir_data = new ArrayList<>();
+
+		for (String[] cr : this.repository.countNumberOfCompanyRecordsGroupedBySector()) {
+			cr_labels.add(cr[0]);
+		}
+
+		for (String label : labels) {
+			if (cr_labels.contains(label)) {
+				for (String[] cr : this.repository.countNumberOfCompanyRecordsGroupedBySector()) {
+					if (label.equals(cr[0])) {
+						cr_data.add(cr[1]);
+					}
+				}
+			} else {
+				cr_data.add("0");
+			}
+		}
+
+		for (String[] ir : this.repository.countNumberOfInvestorRecordsGroupedBySector()) {
+			ir_labels.add(ir[0]);
+		}
+
+		for (String label : labels) {
+			if (ir_labels.contains(label)) {
+				for (String[] ir : this.repository.countNumberOfInvestorRecordsGroupedBySector()) {
+					if (label.equals(ir[0])) {
+						ir_data.add(ir[1]);
+					}
+				}
+			} else {
+				ir_data.add("0");
+			}
+		}
+
+		List<List<String>> chart = new ArrayList<>();
+
+		chart.add(labels);
+		chart.add(cr_data);
+		chart.add(ir_data);
+
+		result.setChartCompanyInvestor(chart);
 
 		return result;
 	}
