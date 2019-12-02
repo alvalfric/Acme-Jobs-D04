@@ -310,7 +310,8 @@
 
     create table `thread_message` (
        `thread_id` integer not null,
-        `messages_id` integer not null
+        `messages_id` integer not null,
+        primary key (`thread_id`, `messages_id`)
     ) engine=InnoDB;
 
     create table `user_account` (

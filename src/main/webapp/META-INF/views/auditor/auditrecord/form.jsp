@@ -18,7 +18,6 @@
 	<acme:form-textbox code="auditor.auditrecord.form.label.reference" path="reference"/>
 	<acme:form-textbox code="auditor.auditrecord.form.label.title" path="title"/>
 	<acme:form-moment  code="auditor.auditrecord.form.label.moment" path="moment" />
-	<acme:form-money  code="auditor.auditrecord.form.label.status" path="status" />
 	<acme:form-url  code="auditor.auditrecord.form.label.body" path="body" />
 	
 	<acme:form-return code="auditor.auditrecord.form.button.return"/>
