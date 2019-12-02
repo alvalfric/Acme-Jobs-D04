@@ -2,6 +2,7 @@
 package acme.forms;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +30,5 @@ public class Dashboard implements Serializable {
 	Double						standardDeviationOfActiveOffers;
 	String[][]					totalNumberOfCompanyRecordsGroupedBySector;
 	String[][]					totalNumberOfInvestorRecordsGroupedBySector;
-
-	String						labelsOfTotalNumberOfCompanyRecordsGroupedBySector;
-	String						valuesOfTotalNumberOfCompanyRecordsGroupedBySector;
+	List<List<String>>			chartCompanyInvestor;
 }

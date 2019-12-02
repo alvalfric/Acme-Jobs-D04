@@ -14,7 +14,7 @@
 	<acme:form-integer code="administrator.dashboard.form.label.maxOffers" path="maximumRewardOfActiveOffers" readonly="true" />
 	<acme:form-integer code="administrator.dashboard.form.label.avgOffers" path="averageRewardOfActiveOffers" readonly="true" />
 </acme:form>
-
+<b><acme:message code="administrator.dashboard.chart.label.companyInvestor"/></b>
 <canvas id="myChart" width="250" height="50"></canvas>
 <script>
 	var ctx = document.getElementById("myChart").getContext('2d');
@@ -22,27 +22,34 @@
 		type : 'bar',
 		data : {
 			labels : [
-				"Prueba", "Prueba", "Prueba"
+				"<jstl:out value="${chartCompanyInvestor.get(0).get(0)}" escapeXml="false"/>"
+				<jstl:forEach var="duty" items="${chartCompanyInvestor.get(0)}" begin="1">
+					,"<jstl:out value="${duty}" escapeXml="false"/>"
+				</jstl:forEach>
 			],
 			datasets : [
 				{
-					label : '',
 					data : [
-						<jstl:out value="${Integer.parseInt(totalNumberOfCompanyRecordsGroupedBySector[0][1])}" escapeXml="false"/>
-						<jstl:forEach var="duty" items="${totalNumberOfCompanyRecordsGroupedBySector}" begin="1">
-							,<jstl:out value="${Integer.parseInt(duty[1])}" escapeXml="false"/>
+						<jstl:out value="${Integer.parseInt(chartCompanyInvestor.get(1).get(0))}" escapeXml="false"/>
+						<jstl:forEach var="duty" items="${chartCompanyInvestor.get(1)}" begin="1">
+							,<jstl:out value="${Integer.parseInt(duty)}" escapeXml="false"/>
 						</jstl:forEach>
 					],
-					backgroundColor : [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(255, 99, 132, 0.2)'
+					label: 'Company Records/Registros de Compañias',
+					backgroundColor : 'rgba(255, 99, 132, 0.2)',
+					borderColor : 'rgba(255,99,132,1)',
+					borderWidth : 1
+				},
+				{
+					data : [
+						<jstl:out value="${Integer.parseInt(chartCompanyInvestor.get(2).get(0))}" escapeXml="false"/>
+						<jstl:forEach var="duty" items="${chartCompanyInvestor.get(2)}" begin="1">
+							,<jstl:out value="${Integer.parseInt(duty)}" escapeXml="false"/>
+						</jstl:forEach>
 					],
-					borderColor : [
-							'rgba(255,99,132,1)',
-							'rgba(255,99,132,1)',
-							'rgba(255,99,132,1)'
-					],
+					label: 'Investor Records/Registros de Inversores',
+					backgroundColor : 'rgba(54, 162, 235, 0.2)',
+					borderColor : 'rgba(54, 162, 235, 1)',
 					borderWidth : 1
 				}
 			]
@@ -52,10 +59,14 @@
 				yAxes : [
 					{
 						ticks : {
-							beginAtZero : true
+							suggestedMin : 0.0,
+							suggestedMax : 1.0
 						}
 					}
 				]
+			},
+			legend : {
+				display : true
 			}
 		}
 	});
