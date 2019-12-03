@@ -27,6 +27,7 @@ tr:nth-child(even) {
 	<acme:form-textbox code="employer.job.form.label.salary" path="salary"/>
 	<acme:form-textbox code="employer.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:form-textarea code="employer.job.form.label.description" path="descriptor.description"/>
+	<acme:form-textbox code="employer.job.form.label.auditor-record" path="id"/>
 	<b><acme:message code="employer.job.form.label.duty"/></b>
 	<table>
 		<tr>
@@ -46,3 +47,5 @@ tr:nth-child(even) {
 
 	<acme:form-return code="employer.job.form.button.return"/>
 </acme:form>
+
+<input type="button"  onclick="location.href='/acme-jobs/employer/auditrecord/list-mine?jobId=${id}'" value="Ver Audit Records" >
