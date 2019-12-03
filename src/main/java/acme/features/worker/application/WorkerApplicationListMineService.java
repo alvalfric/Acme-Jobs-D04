@@ -10,7 +10,6 @@ import acme.entities.applications.Application;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -22,25 +21,13 @@ public class WorkerApplicationListMineService implements AbstractListService<Wor
 	WorkerApplicationRepository repository;
 
 
-	// AbstractListService<Authenticated, Application> interface -------------------------------------
+	// AbstractListService<Worker, Application> interface -------------------------------------
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		boolean result;
-		int applicationId;
-		Application application;
-		Worker worker;
-		Principal principal;
-
-		applicationId = request.getModel().getInteger("id");
-		application = this.repository.findOneByApplicationId(applicationId);
-		worker = application.getWorker();
-		principal = request.getPrincipal();
-		result = worker.getUserAccount().getId() == principal.getAccountId();
-
-		return result;
+		return true;
 	}
 
 	@Override
@@ -58,7 +45,7 @@ public class WorkerApplicationListMineService implements AbstractListService<Wor
 
 		Collection<Application> result;
 
-		result = this.repository.findManyByWorkerId(request.getPrincipal().getAccountId());
+		result = this.repository.findManyByWorkerId(request.getPrincipal().getActiveRoleId());
 
 		return result;
 	}

@@ -48,8 +48,8 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	Double averageRewardOfActiveOffers();
 
 	@Query("select cr.sector, count(cr) from CompanyRecord cr group by cr.sector")
-	String[] countNumberOfCompanyRecordsGroupedBySector();
+	String[][] countNumberOfCompanyRecordsGroupedBySector();
 
 	@Query("select ir.sector, count(ir) from InvestorRecord ir group by ir.sector")
-	String[] countNumberOfInvestorRecordsGroupedBySector();
+	String[][] countNumberOfInvestorRecordsGroupedBySector();
 }

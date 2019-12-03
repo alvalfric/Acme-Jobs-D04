@@ -213,8 +213,15 @@
 		<property name ="investingStatement" value="I want to diversify my stock"/>
 		<property name ="stars" value="3.5"/>
 	</bean>
+	
+	<bean id="investorRecord04" class ="acme.entities.investorRecords.InvestorRecord">
+		<property name ="investorName" value="Lorenzo"/>
+		<property name ="sector" value="Vidrio"/>
+		<property name ="investingStatement" value="Hi I'm Lorenzo"/>
+		<property name ="stars" value="3.5"/>
+	</bean>
   
-  <bean id="comBannerr01" class="acme.entities.banners.CommercialBanner">
+  	<bean id="comBannerr01" class="acme.entities.banners.CommercialBanner">
 		<property name="slogan" value="Just do it"/>
 		<property name="targetURL" value="https://www.nike.com/"/>
 		<property name="creditCardNumber" value="5500000000000004"/>
@@ -286,7 +293,7 @@
 		<property value="1" name="incorporated"/>
 		<property value="4.5" name="starScore"/>
 	</bean>
-
+	
 	<bean class="acme.entities.company_record.CompanyRecord" id="companyRecord03">
 		<property value="Startup company" name="companyName"/>
 		<property value="Robotics" name="sector"/>
@@ -297,6 +304,18 @@
 		<property value="startupcompany@gmail.com" name="contactEmail"/>
 		<property value="0" name="incorporated"/>
 		<property value="2.5" name="starScore"/>
+	</bean>
+	
+	<bean class="acme.entities.company_record.CompanyRecord" id="companyRecord04">
+		<property value="Astiglass 2" name="companyName"/>
+		<property value="Vidrio" name="sector"/>
+		<property value="Lorenzo Aliaga" name="CEOName"/>
+		<property value="50 años de experiencia, esfuerzo e innovación, logran un aumento de la productividad y de la calidad de nuestros productos, situando actualmente a ASTIGLASS en un referente en el sector del vidrio." name="activitiesDescription"/>
+		<property value="http://www.astiglass.com/" name="website"/>
+		<property value="+42 (4201) 955901234" name="contactPhone"/>
+		<property value="info@astiglass.com" name="contactEmail"/>
+		<property value="1" name="incorporated"/>
+		<property value="4.5" name="starScore"/>
 	</bean>
 	
 	<!--Costumisation Parameters-->
@@ -420,6 +439,55 @@
 		<property name="descriptor" ref="descriptor1"/>
 	</bean>
 	
+	<bean name="duty3" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="100" />
+		<property name="descriptor" ref="descriptor2"/>
+	</bean>
+	
+	<bean name="duty4" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="100" />
+		<property name="descriptor" ref="descriptor3"/>
+	</bean>
+	
+	<bean name="duty5" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="100" />
+		<property name="descriptor" ref="descriptor4"/>
+	</bean>
+	
+	<bean name="duty6" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty2" />
+		<property name="description" value="Duty2" />
+		<property name="percentage" value="10" />
+		<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean name="duty7" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty3" />
+		<property name="description" value="Duty3" />
+		<property name="percentage" value="40" />
+		<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean name="duty8" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty4" />
+		<property name="description" value="Duty4" />
+		<property name="percentage" value="40" />
+		<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean name="duty9" class="acme.entities.jobs.Duty">
+		<property name="title" value="Duty1" />
+		<property name="description" value="Duty1" />
+		<property name="percentage" value="20" />
+		<property name="descriptor" ref="descriptor5"/>
+	</bean>
+		
 	<!-- Descriptor -->
 	
 	<!-- Descriptor 1 -->
@@ -438,24 +506,47 @@
 	
 	<bean name="descriptor2" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Alea iacta est." />
+		<property name="duties">
+			<list>
+				<ref bean="duty3"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Descriptor 3 -->
 	
 	<bean name="descriptor3" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Carpe diem." />
+		<property name="duties">
+			<list>
+				<ref bean="duty4"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Descriptor 4 -->
 	
 	<bean name="descriptor4" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Hic et nunc." />
+		<property name="duties">
+			<list>
+				<ref bean="duty5"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Descriptor 5 -->
 	
 	<bean name="descriptor5" class="acme.entities.jobs.Descriptor">
 		<property name="description" value="Ad infinitum et plus ultra." />
+		<property name="duties">
+			<list>
+				<ref bean="duty6"/>
+				<ref bean="duty7"/>
+				<ref bean="duty8"/>
+				<ref bean="duty9"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Job -->
@@ -528,6 +619,35 @@
 	<!--Worker-->
 	
 	<!--Worker 1-->
+	
+		<bean name="workerUserAccountEjemplo" class="acme.framework.entities.UserAccount">
+		<property name="username" value="workerejemplo"/>
+		<property name="password" value="worker"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Worker"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="worker@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="workerWorkerEjemplo"/>
+				<ref bean="workerAuthenticatedEjemplo"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="workerWorkerEjemplo" class="acme.entities.roles.Worker">
+		<property name="qualificationsRecord" value="Cualificated Worker"/>
+		<property name="skillsRecord" value="Skilled Worker"/>
+		<property name="userAccount" ref="workerUserAccountEjemplo"/>
+	</bean>
+
+	<bean name="workerAuthenticatedEjemplo" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="workerUserAccountEjemplo"/>
+	</bean>
 	
 	<bean name="workerUserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="worker"/>
@@ -626,7 +746,7 @@
 		<property name="reference" value="WOR3-JOB1" />
 		<property name="moment" value="2018/12/11 23:59" />
 		<property name="status" value="PENDING" />
-		<property name="statement" value="statement example" />
+		<property name="statement" value="Statement example 1" />
 		<property name="skills" value="Skills example 1" />
 		<property name="qualifications" value="Qualifications example 1" />
 		<property name="worker" ref="worker3Worker" />
@@ -648,12 +768,45 @@
 		<property name="reference" value="WOR2-JOB4" />
 		<property name="moment" value="2019/06/11 23:59" />
 		<property name="status" value="REJECTED" />
-		<property name="statement" value="statement example num3" />
-		<property name="skills" value="Skills example 2" />
+		<property name="statement" value="Statement example 3" />
+		<property name="skills" value="Skills example 3" />
 		<property name="qualifications" value="Qualifications example 3" />
 		<property name="worker" ref="worker2Worker" />
 		<property name="job" ref="job4" />
-  </bean>
+    </bean>
+    
+    <bean name="application4" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR1-JOB3" />
+		<property name="moment" value="2019/08/21 12:59" />
+		<property name="status" value="ACCEPTED" />
+		<property name="statement" value="Statement example 4" />
+		<property name="skills" value="Skills example 4" />
+		<property name="qualifications" value="Qualifications example 4" />
+		<property name="worker" ref="workerWorker" />
+		<property name="job" ref="job3" />
+    </bean>
+    
+    <bean name="application5" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR1-JOB1" />
+		<property name="moment" value="2019/03/15 16:59" />
+		<property name="status" value="PENDING" />
+		<property name="statement" value="Statement example 5" />
+		<property name="skills" value="Skills example 5" />
+		<property name="qualifications" value="Qualifications example 5" />
+		<property name="worker" ref="workerWorker" />
+		<property name="job" ref="job1" />
+    </bean>
+    
+    <bean name="application6" class="acme.entities.applications.Application">
+		<property name="reference" value="WOR1-JOB2" />
+		<property name="moment" value="2019/10/10 10:10" />
+		<property name="status" value="REJECTED" />
+		<property name="statement" value="Statement example 6" />
+		<property name="skills" value="Skills example 6" />
+		<property name="qualifications" value="Qualifications example 3" />
+		<property name="worker" ref="workerWorker" />
+		<property name="job" ref="job2" />
+    </bean>
   
 	<bean id="Message01" class="acme.entities.threads.Message">
 		<property name="user" ref ="worker3Authenticated"/>
