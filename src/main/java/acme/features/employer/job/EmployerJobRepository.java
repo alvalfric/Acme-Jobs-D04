@@ -21,4 +21,5 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select j.descriptor.duties from Job j where j.id = ?1")
 	Collection<Duty> findManyDutyByJobId(int jobId);
+
 }

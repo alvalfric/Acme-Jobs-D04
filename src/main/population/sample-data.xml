@@ -213,8 +213,15 @@
 		<property name ="investingStatement" value="I want to diversify my stock"/>
 		<property name ="stars" value="3.5"/>
 	</bean>
+	
+	<bean id="investorRecord04" class ="acme.entities.investorRecords.InvestorRecord">
+		<property name ="investorName" value="Lorenzo"/>
+		<property name ="sector" value="Vidrio"/>
+		<property name ="investingStatement" value="Hi I'm Lorenzo"/>
+		<property name ="stars" value="3.5"/>
+	</bean>
   
-  <bean id="comBannerr01" class="acme.entities.banners.CommercialBanner">
+  	<bean id="comBannerr01" class="acme.entities.banners.CommercialBanner">
 		<property name="slogan" value="Just do it"/>
 		<property name="targetURL" value="https://www.nike.com/"/>
 		<property name="creditCardNumber" value="5500000000000004"/>
@@ -286,7 +293,7 @@
 		<property value="1" name="incorporated"/>
 		<property value="4.5" name="starScore"/>
 	</bean>
-
+	
 	<bean class="acme.entities.company_record.CompanyRecord" id="companyRecord03">
 		<property value="Startup company" name="companyName"/>
 		<property value="Robotics" name="sector"/>
@@ -297,6 +304,18 @@
 		<property value="startupcompany@gmail.com" name="contactEmail"/>
 		<property value="0" name="incorporated"/>
 		<property value="2.5" name="starScore"/>
+	</bean>
+	
+	<bean class="acme.entities.company_record.CompanyRecord" id="companyRecord04">
+		<property value="Astiglass 2" name="companyName"/>
+		<property value="Vidrio" name="sector"/>
+		<property value="Lorenzo Aliaga" name="CEOName"/>
+		<property value="50 años de experiencia, esfuerzo e innovación, logran un aumento de la productividad y de la calidad de nuestros productos, situando actualmente a ASTIGLASS en un referente en el sector del vidrio." name="activitiesDescription"/>
+		<property value="http://www.astiglass.com/" name="website"/>
+		<property value="+42 (4201) 955901234" name="contactPhone"/>
+		<property value="info@astiglass.com" name="contactEmail"/>
+		<property value="1" name="incorporated"/>
+		<property value="4.5" name="starScore"/>
 	</bean>
 	
 	<!--Costumisation Parameters-->
@@ -600,6 +619,35 @@
 	<!--Worker-->
 	
 	<!--Worker 1-->
+	
+		<bean name="workerUserAccountEjemplo" class="acme.framework.entities.UserAccount">
+		<property name="username" value="workerejemplo"/>
+		<property name="password" value="worker"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Worker"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="worker@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="workerWorkerEjemplo"/>
+				<ref bean="workerAuthenticatedEjemplo"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="workerWorkerEjemplo" class="acme.entities.roles.Worker">
+		<property name="qualificationsRecord" value="Cualificated Worker"/>
+		<property name="skillsRecord" value="Skilled Worker"/>
+		<property name="userAccount" ref="workerUserAccountEjemplo"/>
+	</bean>
+
+	<bean name="workerAuthenticatedEjemplo" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="workerUserAccountEjemplo"/>
+	</bean>
 	
 	<bean name="workerUserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="worker"/>

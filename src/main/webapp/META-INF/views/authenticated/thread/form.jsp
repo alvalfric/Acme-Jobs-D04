@@ -32,7 +32,7 @@
 			<td>${message.title}</td>
 			<td>${message.moment}</td>
 			<td>${message.user.userAccount.username}</td>
-			<td><a href = "/authenticated/message/show?id=${message.id}">Go</a></td>
+			<td><a href = "authenticated/message/show?id=${message.id}">Go</a></td>
 		</tr>
 		</jstl:forEach>
 	</table>
