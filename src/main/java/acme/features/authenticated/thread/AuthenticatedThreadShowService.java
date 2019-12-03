@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.thread;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import acme.entities.threads.Thread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -27,6 +29,16 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 	@Override
 	public boolean authorise(final Request<Thread> request) {
 		assert request != null;
+		Principal principal = request.getPrincipal();
+		Integer id = request.getModel().getInteger("id");
+		Thread result = this.repository.findOneById(id);
+		Collection<Authenticated> users = result.getUsers();
+		Collection<Integer> userAccounts = new ArrayList<Integer>();
+		for (Authenticated user : users) {
+			userAccounts.add(user.getUserAccount().getId());
+		}
+
+		assert userAccounts.contains(principal.getAccountId());
 
 		return true;
 	}
