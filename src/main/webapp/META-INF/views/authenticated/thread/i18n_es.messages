@@ -11,7 +11,11 @@
 authenticated.thread.list.label.title = Título
 authenticated.thread.list.label.moment = Momento
 
-
+authenticated.thread.form.label.messages = Mensajes
+authenticated.thread.form.label.message.title = Título
+authenticated.thread.form.label.message.moment = Momento
+authenticated.thread.form.label.message.user = Usuario
+authenticated.thread.form.label.message.show = Ver
 
 authenticated.thread.form.label.title = Título
 authenticated.thread.form.label.moment = Momento

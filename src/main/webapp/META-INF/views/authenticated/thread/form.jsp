@@ -15,11 +15,27 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #e9ecef;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #e9ecef;
+}
+</style>
+
 <acme:form readonly="true">
 	<acme:form-textbox  code="authenticated.thread.form.label.moment" path="moment"/>
 	<acme:form-textbox code="authenticated.thread.form.label.title" path="title"/>
-	<a href = "/authenticated/message/list-related">Messages</a>
-	<b><acme:message code="authenticated.thread.form.label.message"/></b>
+	<b><acme:message code="authenticated.thread.form.label.messages"/></b>
 	<table>
 		<tr>
 			<th><acme:message code="authenticated.thread.form.label.message.title"/></th>
@@ -32,7 +48,7 @@
 			<td>${message.title}</td>
 			<td>${message.moment}</td>
 			<td>${message.user.userAccount.username}</td>
-			<td><a href = "authenticated/message/show?id=${message.id}">Go</a></td>
+			<td><a href = "authenticated/message/show?id=${message.id}"><acme:message code="authenticated.thread.form.label.message.show"/></a></td>
 		</tr>
 		</jstl:forEach>
 	</table>

@@ -14,5 +14,8 @@ authenticated.thread.list.label.moment = Momento
 
 
 authenticated.thread.form.label.title = Título
+authenticated.message.form.label.body = Cuerpo
+authenticated.message.form.label.tags = Etiquetas
+authenticated.message.form.label.user = Usuario
 authenticated.thread.form.label.moment = Momento
 authenticated.thread.form.button.return = Volver

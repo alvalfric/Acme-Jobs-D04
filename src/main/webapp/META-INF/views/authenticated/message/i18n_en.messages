@@ -9,12 +9,15 @@
 # they accept any liabilities with respect to them.
 
 
-authenticated.thread.list.label.title = Title
-authenticated.thread.list.label.moment = Moment
+authenticated.message.list.label.title = Title
+authenticated.message.list.label.moment = Moment
 
 
 
-authenticated.thread.form.label.title = Title
-authenticated.thread.form.label.moment = Moment
-authenticated.thread.form.button.return = Return
+authenticated.message.form.label.title = Title
+authenticated.message.form.label.body = Body
+authenticated.message.form.label.tags = Tags
+authenticated.message.form.label.user = User
+authenticated.message.form.label.moment = Moment
+authenticated.message.form.button.return = Return
 
