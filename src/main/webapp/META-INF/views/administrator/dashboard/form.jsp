@@ -22,9 +22,9 @@
 		type : 'bar',
 		data : {
 			labels : [
-				"<jstl:out value="${chartCompanyInvestor.get(0).get(0)}" escapeXml="false"/>"
+				"<jstl:out value="${chartCompanyInvestor.get(0).get(0)}" escapeXml="false"/>",
 				<jstl:forEach var="duty" items="${chartCompanyInvestor.get(0)}" begin="1">
-					,"<jstl:out value="${duty}" escapeXml="false"/>"
+					"<jstl:out value="${duty}" escapeXml="false"/>",
 				</jstl:forEach>
 			],
 			datasets : [

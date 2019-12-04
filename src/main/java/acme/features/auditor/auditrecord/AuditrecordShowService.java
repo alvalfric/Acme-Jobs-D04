@@ -32,7 +32,6 @@ public class AuditrecordShowService implements AbstractShowService<Auditor, Audi
 		principal = request.getPrincipal();
 
 		result = auditRecord.getAuditor().getId() == principal.getActiveRoleId();
-
 		return result;
 	}
 
