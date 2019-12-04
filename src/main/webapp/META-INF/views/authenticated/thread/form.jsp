@@ -43,7 +43,6 @@ tr:nth-child(even) {
 			<th><acme:message code="authenticated.thread.form.label.message.user"/></th>
 		</tr>
 		<jstl:forEach var="message" items="${messages}">
-		
 		<tr>
 			<td>${message.title}</td>
 			<td>${message.moment}</td>

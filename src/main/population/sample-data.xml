@@ -808,8 +808,11 @@
 		<property name="job" ref="job2" />
     </bean>
   
+  	<!-- Messages -->
+  
 	<bean id="Message01" class="acme.entities.threads.Message">
 		<property name="user" ref ="worker3Authenticated"/>
+		<property name="thread" ref ="thread01"/>
 		<property name="title" value="Message 01"/>
 		<property name="moment" value="2019/11/01  11:22"/>
 		<property name="body" value="my body number 01"/> 
@@ -818,6 +821,7 @@
 	
 	<bean id="Message02" class="acme.entities.threads.Message">
 		<property name="user" ref ="worker3Authenticated"/>
+		<property name="thread" ref ="thread02"/>
 		<property name="title" value="Message 02"/>
 		<property name="moment" value="2019/11/02  11:22"/>
 		<property name="body" value="my body number 02"/> 
@@ -826,6 +830,7 @@
 	
 	<bean id="Message03" class="acme.entities.threads.Message">
 		<property name="user" ref ="worker2Authenticated"/>
+		<property name="thread" ref ="thread01"/>
 		<property name="title" value="Message 03"/>
 		<property name="moment" value="2019/11/03  11:22"/>
 		<property name="body" value="my body number 03"/> 
@@ -834,6 +839,7 @@
 	
 	<bean id="Message04" class="acme.entities.threads.Message">
 		<property name="user" ref ="worker2Authenticated"/>
+		<property name="thread" ref ="thread03"/>
 		<property name="title" value="Message 04"/>
 		<property name="moment" value="2019/11/04  11:22"/>
 		<property name="body" value="my body number 04"/> 
@@ -842,6 +848,7 @@
 	
 	<bean id="Message05" class="acme.entities.threads.Message">
 		<property name="user" ref ="workerAuthenticated"/>
+		<property name="thread" ref ="thread03"/>
 		<property name="title" value="Message 05"/>
 		<property name="moment" value="2019/11/05  11:22"/>
 		<property name="body" value="my body number 05"/> 
@@ -850,6 +857,7 @@
 	
 	<bean id="Message06" class="acme.entities.threads.Message">
 		<property name="user" ref ="workerAuthenticated"/>
+		<property name="thread" ref ="thread01"/>
 		<property name="title" value="Message 06"/>
 		<property name="moment" value="2019/11/06  11:22"/>
 		<property name="body" value="my body number 06"/> 
@@ -858,6 +866,7 @@
 	
 	<bean id="Message07" class="acme.entities.threads.Message">
 		<property name="user" ref ="employer3Authenticated"/>
+		<property name="thread" ref ="thread03"/>
 		<property name="title" value="Message 07"/>
 		<property name="moment" value="2019/11/07  11:22"/>
 		<property name="body" value="my body number 07"/> 
@@ -866,6 +875,7 @@
 	
 	<bean id="Message08" class="acme.entities.threads.Message">
 		<property name="user" ref ="employer3Authenticated"/>
+		<property name="thread" ref ="thread03"/>
 		<property name="title" value="Message 08"/>
 		<property name="moment" value="2019/11/08  11:22"/>
 		<property name="body" value="my body number 08"/> 
@@ -874,6 +884,7 @@
 	
 	<bean id="Message09" class="acme.entities.threads.Message">
 		<property name="user" ref ="employer2Authenticated"/>
+		<property name="thread" ref ="thread03"/>
 		<property name="title" value="Message 09"/>
 		<property name="moment" value="2019/11/09  11:22"/>
 		<property name="body" value="my body number 09"/> 
@@ -882,15 +893,16 @@
 	
 	<bean id="Message10" class="acme.entities.threads.Message">
 		<property name="user" ref ="employer2Authenticated"/>
+		<property name="thread" ref ="thread02"/>
 		<property name="title" value="Message 10"/>
 		<property name="moment" value="2019/11/10  11:22"/>
 		<property name="body" value="my body number 10"/> 
 		<property name="tags" value="news, jobs, university"/> 
 	</bean>
 	
+	<!-- Threads -->
 	
-	
-	<bean id="Thread01" class="acme.entities.threads.Thread">
+	<bean id="thread01" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 01"/>
 		<property name="moment" value="2019/10/29  11:22"/>
 		<property name="messages">
@@ -911,7 +923,7 @@
 		</property>
 	</bean>
 	
-	<bean id="Thread02" class="acme.entities.threads.Thread">
+	<bean id="thread02" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 02"/>
 		<property name="moment" value="2019/09/29  11:22"/>
 		<property name="messages">
@@ -929,7 +941,7 @@
 		</property>
 	</bean>
 	
-	<bean id="Thread03" class="acme.entities.threads.Thread">
+	<bean id="thread03" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 03"/>
 		<property name="moment" value="2019/08/29  11:22"/>
 		<property name="messages">

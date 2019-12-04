@@ -31,6 +31,6 @@ public class Descriptor extends DomainEntity {
 	// Relationships ------------------------------------------------------
 
 	@NotNull
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "descriptor", fetch = FetchType.EAGER)
 	private Collection<@Valid Duty> duties;
 }

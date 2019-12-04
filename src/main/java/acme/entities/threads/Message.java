@@ -43,4 +43,9 @@ public class Message extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Authenticated		user;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Thread				thread;
 }

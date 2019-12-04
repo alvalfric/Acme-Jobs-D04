@@ -43,6 +43,6 @@ public class Thread extends DomainEntity {
 	@ManyToMany
 	private List<Authenticated>	users;
 
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "thread", fetch = FetchType.EAGER)
 	private Set<@Valid Message>	messages;
 }

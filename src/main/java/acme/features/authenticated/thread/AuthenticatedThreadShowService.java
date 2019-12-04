@@ -64,6 +64,7 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
+		result.getMessages();
 
 		return result;
 	}
