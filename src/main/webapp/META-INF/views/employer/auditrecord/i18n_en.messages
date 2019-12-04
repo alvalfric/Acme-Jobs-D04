@@ -9,15 +9,15 @@
 # they accept any liabilities with respect to them.
 
 
-auditor.auditrecord.list.label.reference= References
-auditor.auditrecord.list.label.moment= Moment
-auditor.auditrecord.list.label.title= Title
+employer.auditrecord.list.label.reference= References
+employer.auditrecord.list.label.moment= Moment
+employer.auditrecord.list.label.title= Title
 
 
-auditor.auditrecord.form.label.reference= References
-auditor.auditrecord.form.label.title= Title
-auditor.auditrecord.form.label.moment= Moment
-auditor.auditrecord.form.label.status= Status
-auditor.auditrecord.form.label.body= Body
+employer.auditrecord.form.label.reference= References
+employer.auditrecord.form.label.title= Title
+employer.auditrecord.form.label.moment= Moment
+employer.auditrecord.form.label.status= Status
+employer.auditrecord.form.label.body= Body
 
-auditor.auditrecord.form.button.return = Return
+employer.auditrecord.form.button.return = Return

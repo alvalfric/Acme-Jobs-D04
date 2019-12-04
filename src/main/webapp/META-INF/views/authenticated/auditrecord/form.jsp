@@ -15,10 +15,10 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="employer.auditrecord.form.label.reference" path="reference"/>
-	<acme:form-textbox code="employer.auditrecord.form.label.title" path="title"/>
-	<acme:form-moment  code="employer.auditrecord.form.label.moment" path="moment" />
-	<acme:form-url  code="employer.auditrecord.form.label.body" path="body" />
+	<acme:form-textbox code="authenticated.auditrecord.form.label.reference" path="reference"/>
+	<acme:form-textbox code="authenticated.auditrecord.form.label.title" path="title"/>
+	<acme:form-moment  code="authenticated.auditrecord.form.label.moment" path="moment" />
+	<acme:form-url  code="authenticated.auditrecord.form.label.body" path="body" />
 	
-	<acme:form-return code="employer.auditrecord.form.button.return"/>
+	<acme:form-return code="authenticated.auditrecord.form.button.return"/>
 </acme:form>

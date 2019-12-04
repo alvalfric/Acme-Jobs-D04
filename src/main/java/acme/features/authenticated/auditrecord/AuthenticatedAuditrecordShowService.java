@@ -1,21 +1,25 @@
 
-package acme.features.auditor.auditrecord;
+package acme.features.authenticated.auditrecord;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditrecord.Auditrecord;
-import acme.entities.roles.Auditor;
+import acme.entities.jobs.Job;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
+import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuditrecordShowService implements AbstractShowService<Auditor, Auditrecord> {
+public class AuthenticatedAuditrecordShowService implements AbstractShowService<Authenticated, Auditrecord> {
 
 	@Autowired
-	AuditrecordRepository repository;
+	AuthenticatedAuditrecordRepository repository;
 
 
 	@Override
@@ -24,14 +28,19 @@ public class AuditrecordShowService implements AbstractShowService<Auditor, Audi
 
 		boolean result;
 		int audRecId;
+		Job job;
 		Auditrecord auditRecord;
-		Principal principal;
+		Calendar calendar;
+		Date today;
 
 		audRecId = request.getModel().getInteger("id");
 		auditRecord = this.repository.findOneAuditrecordById(audRecId);
-		principal = request.getPrincipal();
+		job = auditRecord.getJob();
 
-		result = auditRecord.getAuditor().getId() == principal.getActiveRoleId();
+		calendar = new GregorianCalendar();
+		today = calendar.getTime();
+
+		result = job.isFinalMode() && job.getDeadline().after(today);
 
 		return result;
 	}
