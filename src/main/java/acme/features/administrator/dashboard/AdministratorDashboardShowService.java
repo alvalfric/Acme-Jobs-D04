@@ -49,7 +49,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert model != null;
 
 		request.unbind(entity, model, "totalNumberOfAnnouncements", "totalNumberOfCompanyRecords", "totalNumberOfInvestorRecords", "mininumRewardOfActiveRequests", "maximumRewardOfActiveRequests", "averageRewardOfActiveRequests",
-			"mininumRewardOfActiveOffers", "maximumRewardOfActiveOffers", "averageRewardOfActiveOffers", "totalNumberOfCompanyRecordsGroupedBySector", "totalNumberOfInvestorRecordsGroupedBySector", "chartCompanyInvestor");
+			"mininumRewardOfActiveOffers", "maximumRewardOfActiveOffers", "averageRewardOfActiveOffers", "totalNumberOfCompanyRecordsGroupedBySector", "totalNumberOfInvestorRecordsGroupedBySector", "averageNumberOfJobsPerEmployer",
+			"averageNumberOfApplicationsPerEmployer", "averageNumberOfApplicationsPerWorker", "chartCompanyInvestor", "ratioOfYesFinalModeJobs", "ratioOfNoFinalModeJobs", "ratioOfPendingApplications", "ratioOfRejectedApplications",
+			"ratioOfAcceptedApplications");
 	}
 
 	@Override
@@ -67,6 +69,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMininumRewardOfActiveOffers(this.repository.mininumRewardOfActiveOffers());
 		result.setMaximumRewardOfActiveOffers(this.repository.maximumRewardOfActiveOffers());
 		result.setAverageRewardOfActiveOffers(this.repository.averageRewardOfActiveOffers());
+		result.setAverageNumberOfJobsPerEmployer(this.repository.averageNumberOfJobsPerEmployer());
+		result.setAverageNumberOfApplicationsPerEmployer(this.repository.averageNumberOfApplicationsPerEmployer());
+		result.setAverageNumberOfApplicationsPerWorker(this.repository.averageNumberOfApplicationsPerWorker());
 		result.setTotalNumberOfCompanyRecordsGroupedBySector(this.repository.countNumberOfCompanyRecordsGroupedBySector());
 		result.setTotalNumberOfInvestorRecordsGroupedBySector(this.repository.countNumberOfInvestorRecordsGroupedBySector());
 
@@ -126,6 +131,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		chart.add(ir_data);
 
 		result.setChartCompanyInvestor(chart);
+
+		result.setRatioOfPendingApplications(this.repository.ratioOfPendingApplications());
+		result.setRatioOfAcceptedApplications(this.repository.ratioOfAcceptedApplications());
+		result.setRatioOfRejectedApplications(this.repository.ratioOfRejectedApplications());
+		result.setRatioOfYesFinalModeJobs(this.repository.ratioOfYesFinalModeJobs());
+		result.setRatioOfNoFinalModeJobs(this.repository.ratioOfNoFinalModeJobs());
 
 		return result;
 	}

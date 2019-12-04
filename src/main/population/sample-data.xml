@@ -213,6 +213,13 @@
 		<property name ="investingStatement" value="I want to diversify my stock"/>
 		<property name ="stars" value="3.5"/>
 	</bean>
+	
+	<bean id="investorRecord04" class ="acme.entities.investorRecords.InvestorRecord">
+		<property name ="investorName" value="Barry Allen"/>
+		<property name ="sector" value="Vidrio"/>
+		<property name ="investingStatement" value="I want to diversify my stock"/>
+		<property name ="stars" value="3.5"/>
+	</bean>
   
   <bean id="comBannerr01" class="acme.entities.banners.CommercialBanner">
 		<property name="slogan" value="Just do it"/>
@@ -297,6 +304,18 @@
 		<property value="startupcompany@gmail.com" name="contactEmail"/>
 		<property value="0" name="incorporated"/>
 		<property value="2.5" name="starScore"/>
+	</bean>
+	
+	<bean class="acme.entities.company_record.CompanyRecord" id="companyRecord04">
+		<property value="Flashglass" name="companyName"/>
+		<property value="Vidrio" name="sector"/>
+		<property value="Lorenzo Aliaga" name="CEOName"/>
+		<property value="50 años de experiencia, esfuerzo e innovación, logran un aumento de la productividad y de la calidad de nuestros productos, situando actualmente a ASTIGLASS en un referente en el sector del vidrio." name="activitiesDescription"/>
+		<property value="http://www.flashglass.com/" name="website"/>
+		<property value="+42 (4201) 955901235" name="contactPhone"/>
+		<property value="info@flashglass.com" name="contactEmail"/>
+		<property value="1" name="incorporated"/>
+		<property value="4.5" name="starScore"/>
 	</bean>
 	
 	<!--Costumisation Parameters-->
