@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditrecord.Auditrecord;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -19,25 +21,23 @@ public class EmployerAuditrecordShowService implements AbstractShowService<Emplo
 
 	@Override
 	public boolean authorise(final Request<Auditrecord> request) {
-
-		/*
-		 * boolean result;
-		 *
-		 * int auditrecordId;
-		 * Auditrecord auditrecord;
-		 * Job job;
-		 * Principal principal;
-		 *
-		 * auditrecordId = request.getModel().getInteger("id");
-		 * auditrecord = this.repository.findOneAuditrecordById(auditrecordId);
-		 * job = auditrecord.getJob();
-		 * principal = request.getPrincipal();
-		 * result = job.i.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getActiveRoleId();
-		 * return result;
-		 */
 		assert request != null;
 
-		return true;
+		boolean result;
+		int audRecId;
+		Job job;
+		Employer employer;
+		Auditrecord auditRecord;
+		Principal principal;
+
+		audRecId = request.getModel().getInteger("id");
+		auditRecord = this.repository.findOneAuditrecordById(audRecId);
+		job = auditRecord.getJob();
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override

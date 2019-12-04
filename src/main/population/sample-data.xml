@@ -916,9 +916,9 @@
 	  <property name="body" value="I m 1 a audir record 1" />
 	  <property name="job" ref="job1" />
 	  <property name="auditor" ref="auditor1Auditor" />
-   </bean>
+   	</bean>
    
-   <bean name="auditrecord2" class= "acme.entities.auditrecord.Auditrecord">
+   	<bean name="auditrecord2" class= "acme.entities.auditrecord.Auditrecord">
 	  <property name="reference" value="job2-auditor2"/>
 	  <property name="title" value="Title 2"/>
 	  <property name="status" value="true" />
@@ -926,16 +926,27 @@
 	  <property name="body" value="I m 2 a audir record 2" />
 	  <property name="job" ref="job2" />
 	  <property name="auditor" ref="auditor2Auditor" />
-   </bean>
-    <bean name="auditrecord3" class= "acme.entities.auditrecord.Auditrecord">
-	  <property name="reference" value="job3-auditor2"/>
+  	</bean>
+   
+	<bean name="auditrecord3" class= "acme.entities.auditrecord.Auditrecord">
+	  <property name="reference" value="job2-auditor3"/>
 	  <property name="title" value="Title 3"/>
 	  <property name="status" value="true" />
 	  <property name="moment" value="2030/12/11 23:59"/>
 	  <property name="body" value="I m 3 a audir record 3" />
 	  <property name="job" ref="job2" />
 	  <property name="auditor" ref="auditor2Auditor" />
-   </bean>
+   	</bean>
+   	
+   	<bean name="auditrecord4" class= "acme.entities.auditrecord.Auditrecord">
+	  <property name="reference" value="job3-auditor2"/>
+	  <property name="title" value="Title 4"/>
+	  <property name="status" value="true" />
+	  <property name="moment" value="2030/12/11 23:59"/>
+	  <property name="body" value="I m 4 a audir record 4" />
+	  <property name="job" ref="job3" />
+	  <property name="auditor" ref="auditor3Auditor" />
+   	</bean>
    
    <!--  Auditors-->
    <!--  Auditor 1-->
