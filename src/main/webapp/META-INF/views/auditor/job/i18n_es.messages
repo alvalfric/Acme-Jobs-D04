@@ -9,4 +9,10 @@ auditor.job.form.label.salary = Salario
 auditor.job.form.label.moreInfo = Más Información
 auditor.job.form.label.description = Descripción
 
+auditor.job.form.label.duty = Tareas
+auditor.job.form.label.duty.title = Título
+auditor.job.form.label.duty.description = Descripción
+auditor.job.form.label.duty.percentage = Porcentaje de trabajo por semana
+
+auditor.job.form.button.audit-record = Ir a Registros de Auditoría
 auditor.job.form.button.return = Volver

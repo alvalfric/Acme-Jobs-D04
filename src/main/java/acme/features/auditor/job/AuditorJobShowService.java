@@ -1,10 +1,6 @@
 
 package acme.features.auditor.job;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,21 +26,7 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		// TODO Auto-generated method stub
 		assert request != null;
 
-		boolean result;
-		int jobId;
-		Job job;
-		Calendar calendar;
-		Date today;
-
-		jobId = request.getModel().getInteger("id");
-		job = this.repository.findOneJobById(jobId);
-
-		calendar = new GregorianCalendar();
-		today = calendar.getTime();
-
-		result = job.isFinalMode() && job.getDeadline().after(today);
-
-		return result;
+		return true;
 	}
 
 	@Override

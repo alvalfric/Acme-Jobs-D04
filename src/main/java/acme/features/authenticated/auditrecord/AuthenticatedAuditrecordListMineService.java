@@ -1,30 +1,47 @@
 
-package acme.features.auditor.auditrecord;
+package acme.features.authenticated.auditrecord;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditrecord.Auditrecord;
-import acme.entities.roles.Auditor;
+import acme.entities.jobs.Job;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
+import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuditrecordListMineService implements AbstractListService<Auditor, Auditrecord> {
+public class AuthenticatedAuditrecordListMineService implements AbstractListService<Authenticated, Auditrecord> {
 
 	@Autowired
-	AuditrecordRepository repository;
+	AuthenticatedAuditrecordRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<Auditrecord> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int jobId;
+		Job job;
+		Calendar calendar;
+		Date today;
+
+		jobId = request.getModel().getInteger("id");
+		job = this.repository.findOneJobById(jobId);
+
+		calendar = new GregorianCalendar();
+		today = calendar.getTime();
+
+		result = job.isFinalMode() && job.getDeadline().after(today);
+
+		return result;
 	}
 
 	@Override
@@ -42,15 +59,9 @@ public class AuditrecordListMineService implements AbstractListService<Auditor, 
 		assert request != null;
 
 		Collection<Auditrecord> result;
-		Principal principal;
+		int jobId = request.getModel().getInteger("jobId");
 
-		principal = request.getPrincipal();
-		if (request.getModel().hasAttribute("jobId")) {
-			result = this.repository.findManyByJobIdAndAuditorId(principal.getActiveRoleId(), request.getModel().getInteger("jobId"));
-		} else {
-			result = this.repository.findManyByAuditrecordId(principal.getActiveRoleId());
-		}
-
+		result = this.repository.findManyByJobId(jobId);
 		return result;
 	}
 

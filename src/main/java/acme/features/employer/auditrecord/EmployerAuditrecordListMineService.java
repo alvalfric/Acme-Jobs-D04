@@ -1,5 +1,5 @@
 
-package acme.features.auditor.auditrecord;
+package acme.features.employer.auditrecord;
 
 import java.util.Collection;
 
@@ -7,24 +7,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditrecord.Auditrecord;
-import acme.entities.roles.Auditor;
+import acme.entities.jobs.Job;
+import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuditrecordListMineService implements AbstractListService<Auditor, Auditrecord> {
+public class EmployerAuditrecordListMineService implements AbstractListService<Employer, Auditrecord> {
 
 	@Autowired
-	AuditrecordRepository repository;
+	EmployerAuditrecordRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<Auditrecord> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int jobId;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("jobId");
+		job = this.repository.findOneJobById(jobId);
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
@@ -42,15 +55,9 @@ public class AuditrecordListMineService implements AbstractListService<Auditor, 
 		assert request != null;
 
 		Collection<Auditrecord> result;
-		Principal principal;
+		int jobId = request.getModel().getInteger("jobId");
 
-		principal = request.getPrincipal();
-		if (request.getModel().hasAttribute("jobId")) {
-			result = this.repository.findManyByJobIdAndAuditorId(principal.getActiveRoleId(), request.getModel().getInteger("jobId"));
-		} else {
-			result = this.repository.findManyByAuditrecordId(principal.getActiveRoleId());
-		}
-
+		result = this.repository.findManyByJobId(jobId);
 		return result;
 	}
 

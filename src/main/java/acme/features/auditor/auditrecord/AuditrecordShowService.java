@@ -20,21 +20,18 @@ public class AuditrecordShowService implements AbstractShowService<Auditor, Audi
 
 	@Override
 	public boolean authorise(final Request<Auditrecord> request) {
-		// TODO Auto-generated method stub
 		assert request != null;
 
 		boolean result;
-		int AuditrecordId;
-		Auditrecord auditrecord;
-		Auditor auditor;
+		int audRecId;
+		Auditrecord auditRecord;
 		Principal principal;
 
-		AuditrecordId = request.getModel().getInteger("id");
-		auditrecord = this.repository.findOneAuditrecordById(AuditrecordId);
-		auditor = auditrecord.getAuditor();
+		audRecId = request.getModel().getInteger("id");
+		auditRecord = this.repository.findOneAuditrecordById(audRecId);
 		principal = request.getPrincipal();
-		result = auditrecord.isStatus() || !auditrecord.isStatus() && auditor.getUserAccount().getId() == principal.getAccountId();
 
+		result = auditRecord.getAuditor().getId() == principal.getActiveRoleId();
 		return result;
 	}
 

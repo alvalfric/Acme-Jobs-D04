@@ -11,14 +11,21 @@ import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AuditorJobRepository extends AbstractRepository {
+	/*
+	 * @Query("select j from Job j where j.id = ?1 and j.deadline>=current_timestamp() and j.finalMode=true")
+	 * Job findOneJobById(int id);
+	 *
+	 * @Query("select j from Job j where j.deadline>=current_timestamp() and j.finalMode=true")
+	 * Collection<Job> findManyAll();
+	 */
 
-	@Query("select j from Job j where j.id = ?1 and j.deadline>=current_timestamp() and j.finalMode=true")
+	@Query("select j from Job j where j.id = ?1")
 	Job findOneJobById(int id);
 
-	@Query("select j from Job j where j.deadline>=current_timestamp() and j.finalMode=true")
+	@Query("select j from Job j")
 	Collection<Job> findManyAll();
 
-	@Query("select a.job from Auditrecord a where a.auditor.id= ?1")
+	@Query("select a.job from Auditrecord a where a.auditor.id= ?1 group by a.job")
 	Collection<Job> findManyByAuditorId(int auditorId);
 
 }
