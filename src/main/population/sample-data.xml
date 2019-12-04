@@ -562,6 +562,12 @@
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employerEmployer" />
+		<property name="applications">
+			<list>
+				<ref bean="application1"/>
+				<ref bean="application5"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Job 2 -->
@@ -575,6 +581,11 @@
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employerEmployer" />
+		<property name="applications">
+			<list>
+				<ref bean="application6"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Job 3 -->
@@ -588,6 +599,11 @@
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="false" />
 		<property name="employer" ref="employer2Employer" />
+		<property name="applications">
+			<list>
+				<ref bean="application4"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Job 4 -->
@@ -601,6 +617,11 @@
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer3Employer" />
+		<property name="applications">
+			<list>
+				<ref bean="application3"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Job 5 -->
@@ -614,6 +635,11 @@
 		<property name="moreInfo" value="http://www.example.com" />
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer2Employer" />
+		<property name="applications">
+			<list>
+				<ref bean="application2"/>
+			</list>
+		</property>
 	</bean>
 
 	<!--Worker-->
@@ -743,7 +769,7 @@
 	<!-- Applications -->
 	
 	<bean name="application1" class="acme.entities.applications.Application">
-		<property name="reference" value="WOR3-JOB1" />
+		<property name="reference" value="EMP1-JOB1:WOR3" />
 		<property name="moment" value="2018/12/11 23:59" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="Statement example 1" />
@@ -754,7 +780,7 @@
 	</bean>
 	
 	<bean name="application2" class="acme.entities.applications.Application">
-		<property name="reference" value="WOR2-JOB5" />
+		<property name="reference" value="EMP2-JOB5:WOR2" />
 		<property name="moment" value="2019/05/11 23:59" />
 		<property name="status" value="ACCEPTED" />
 		<property name="statement" value="statement example2" />
@@ -765,7 +791,7 @@
 	</bean>
 	
 	<bean name="application3" class="acme.entities.applications.Application">
-		<property name="reference" value="WOR2-JOB4" />
+		<property name="reference" value="EMP3-JOB4:WOR2" />
 		<property name="moment" value="2019/06/11 23:59" />
 		<property name="status" value="REJECTED" />
 		<property name="statement" value="Statement example 3" />
@@ -776,7 +802,7 @@
     </bean>
     
     <bean name="application4" class="acme.entities.applications.Application">
-		<property name="reference" value="WOR1-JOB3" />
+		<property name="reference" value="EMP2-JOB3:WOR1" />
 		<property name="moment" value="2019/08/21 12:59" />
 		<property name="status" value="ACCEPTED" />
 		<property name="statement" value="Statement example 4" />
@@ -787,7 +813,7 @@
     </bean>
     
     <bean name="application5" class="acme.entities.applications.Application">
-		<property name="reference" value="WOR1-JOB1" />
+		<property name="reference" value="EMP1-JOB1:WOR1" />
 		<property name="moment" value="2019/03/15 16:59" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="Statement example 5" />
@@ -798,7 +824,7 @@
     </bean>
     
     <bean name="application6" class="acme.entities.applications.Application">
-		<property name="reference" value="WOR1-JOB2" />
+		<property name="reference" value="EMP1-JOB2:WOR1" />
 		<property name="moment" value="2019/10/10 10:10" />
 		<property name="status" value="REJECTED" />
 		<property name="statement" value="Statement example 6" />
